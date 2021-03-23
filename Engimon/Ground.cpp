@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Ground::Ground(string name, string* parentname, string* parentspecies, Skill* skill, int numskill) :
-Engimon(name, parentname, parentspecies, skill, {"Ground", ""} , numskill) {
+Ground::Ground(string name, string* parentname, string* parentspecies, int numskill) :
+Engimon(name, parentname, parentspecies, {"Ground", ""}, numskill) {
     //
 }
 
-Ground::Ground(const Ground& g) : Engimon(g.getName(), g.getParentName(), g.getParentSpecies(), g.getSkill(), {"Ground", ""}, g.getNumSkill()) { 
+Ground::Ground(const Ground& g) : Engimon(g) { 
     //
 }
 

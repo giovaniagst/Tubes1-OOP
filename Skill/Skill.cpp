@@ -65,3 +65,13 @@ void Skill::addElement(string elmt) {
         }
     }
 }
+int Skill::getJumlah() {
+    return jumlah;
+}
+void Skill::setJumlah(int jml) {
+    jumlah = jml;
+}
+void Skill::addJumlah(int add) {
+    jumlah += add;
+}
+

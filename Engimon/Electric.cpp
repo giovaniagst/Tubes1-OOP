@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Electric::Electric(string name, string* parentname, string* parentspecies, Skill* skill, int numskill) :
-Engimon(name, parentname, parentspecies, skill, {"Electric", ""}, numskill) {
+Electric::Electric(string name, string* parentname, string* parentspecies, int numskill) :
+Engimon(name, parentname, parentspecies, {"Electric", ""}, numskill) {
     //
 }
     
-Electric::Electric(const Electric& e) : Engimon(e.getName(), e.getParentName(), e.getParentSpecies(), e.getSkill(), {"Electric", ""}, e.getNumSkill()) {
+Electric::Electric(const Electric& e) : Engimon(e) {
     //
 }
 

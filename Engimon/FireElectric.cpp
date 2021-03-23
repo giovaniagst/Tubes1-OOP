@@ -4,8 +4,8 @@
 
 using namespace std;
 
-FireElectric::FireElectric(string name, string* parentname, string* parentspecies, Skill* skill, int numskill) :
-Engimon(name, parentname, parentspecies, skill, {"Fire", "Electric"} , numskill) {
+FireElectric::FireElectric(string name, string* parentname, string* parentspecies, int numskill) :
+Engimon(name, parentname, parentspecies, {"Fire", "Electric"} , numskill) {
     //
 }
 

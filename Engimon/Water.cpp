@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Water::Water(string name, string* parentname, string* parentspecies, Skill* skill, int numskill) :
-Engimon(name, parentname, parentspecies, skill, {"Water", ""} , numskill) {
+Water::Water(string name, string* parentname, string* parentspecies, int numskill) :
+Engimon(name, parentname, parentspecies, {"Water", ""}, numskill) {
     //
 }
 
-Water::Water(const Water& w) : Engimon(w.getName(), w.getParentName(), w.getParentSpecies(), w.getSkill(), {"Water", ""}, w.getNumSkill()) { 
+Water::Water(const Water& w) : Engimon(w) { 
     //
 }
 

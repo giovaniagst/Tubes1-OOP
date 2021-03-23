@@ -45,6 +45,7 @@ class Engimon {
     void levelUp(); // cek di main
     virtual void interact();
     virtual void printInfo();
+    void learn(Skill s);
     
     // hapus engimon di main
     // cek posisi di class map ya :)
@@ -54,7 +55,7 @@ class Engimon {
     string* parent_name;
     string* parent_species;
     int num_skill;
-    // Skill* skills; // maksimal 4
+    Skill* skills; // maksimal 4
     string* elements; // bisa lebih dari 1
     int level;
     int experience;

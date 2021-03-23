@@ -221,6 +221,48 @@ void Engimon::printInfo() {
     cout << "Cumulative Experience : " << cumulative_experience << endl;
 }
 
-void Engimon::interact(){
+void Engimon::interact() {
     cout << "class engimon utama" << endl;   
+}
+
+void Engimon::learn(Skill s) {
+    string* elmts = s.getElements();
+    bool found;
+    int i = 0;
+    int jmlSkill = 0;
+    while (!found || elmts[i] != "" || i < 5) {
+        for (int e = 0; e < 2; e++) {
+            if (elmts[i] == elements[e]) {
+                if (num_skill < max_num_of_skills) {
+                    Skill skills[num_skill] = Skill(s);
+                    num_skill++;
+                    jmlSkill = s.getJumlah();
+                    s.setJumlah(jmlSkill);
+                    cout << "Skill ditambahkan" << endl;
+                } else {
+                    // Skill penuh
+                    cout << "Slot skill sudah penuh. Apakah ingin replace skill? (y/n)" << endl;
+                    string replace;
+                    cin >> replace;
+                    if (replace == "y") {
+                        cout << "Pilih slot yang ingin diubah (1-4): ";
+                        int slot;
+                        cin >> slot;
+                        if (slot < 5 && slot > 0) {
+                            Skill skills[slot-1] = Skill(s);
+                            jmlSkill = s.getJumlah();
+                            s.setJumlah(jmlSkill);
+                            cout << "Skill ditambahkan" << endl;
+                        } else {
+                            cout << "Penambahan skill dibatalkan    " << endl;
+                        }
+                    } else { // replace == "n"
+                        cout << "Penambahan skill dibatalkan" << endl;
+                    }
+                }
+                found = true;
+            }
+        }
+        i++;
+    }
 }

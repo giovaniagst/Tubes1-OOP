@@ -10,6 +10,7 @@ class Skill {
         int base_power;
         int mastery_level;
         string* elements;
+        int jumlah;
 
     public:
         Skill();
@@ -24,7 +25,10 @@ class Skill {
         void setMasteryLevel(int ml);
         string* getElements();
         void setElements(string* elmts);
-        void addElement(string elmt); 
+        void addElement(string elmt);
+        int getJumlah();
+        void setJumlah(int jml);
+        void addJumlah(int add); 
 };
 
 #endif
