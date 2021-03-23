@@ -1,7 +1,7 @@
 // Engimon.hpp
 #ifndef ENGIMON_HPP
 #define ENGIMON_HPP
-
+#include "../Skill/Skill.hpp"
 #include <iostream>
 #include <string>
 
@@ -23,8 +23,8 @@ class Engimon {
     void setParentName(string parent1, string parent2);
     string* getParentSpecies();
     void setParentSpecies(string species1, string species2);
-    Skill* getSkill();
-    void setSkill(SKill skill, int idx);
+    // Skill* getSkill();
+    // void setSkill(Skill skill, int idx);
     string* getElements();
     void setElements(string element1, int i);
     int getLevel();
@@ -33,8 +33,8 @@ class Engimon {
     void setExperience(int experience);
     int getCumulativeExperience(); // cek di main
     void setCumulativeExperience(int cumulative_experience);
-    int getNumSkill();
-    void setNumSkill(int num);
+    // int getNumSkill();
+    // void setNumSkill(int num);
     int getX();
     int getY();
     void setCoordinate(int x, int y);
@@ -43,7 +43,7 @@ class Engimon {
 
     // other methods 
     void levelUp(); // cek di main
-    virtual void interact() = 0;
+    virtual void interact();
     virtual void printInfo();
     
     // hapus engimon di main
@@ -54,7 +54,7 @@ class Engimon {
     string* parent_name;
     string* parent_species;
     int num_skill;
-    Skill* skills; // maksimal 4
+    // Skill* skills; // maksimal 4
     string* elements; // bisa lebih dari 1
     int level;
     int experience;

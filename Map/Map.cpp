@@ -40,7 +40,7 @@ void Map::TulisMatriks(){
     }
 }
 void Map::InitMap(){
-    FILE * file = fopen("Map.txt", "r");
+    FILE * file = fopen("./Map/Map.txt", "r");
     char c;
     ReadMatriks(file, &c);
     fclose(file);
