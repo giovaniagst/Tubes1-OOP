@@ -24,7 +24,7 @@ class Skill {
         void setMasteryLevel(int ml);
         string* getElements();
         void setElements(string* elmts);
-        void addElement(string elmt);     
+        void addElement(string elmt); 
 };
 
 #endif

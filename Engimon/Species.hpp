@@ -10,12 +10,13 @@
 #include "Water.hpp"
 #include "WaterGround.hpp"
 #include "WaterIce.hpp"
+#include "../Skill/Skills.hpp"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class Charizard : public Fire {
+class Charizard : public Fire, public SkillCharizard {
     public:
         Charizard(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Charizard(const Charizard&);
@@ -23,7 +24,7 @@ class Charizard : public Fire {
         virtual void interact();
 };
 
-class Glaceon : public Ice {
+class Glaceon : public Ice, public SkillGlaceon {
     public:
         Glaceon(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Glaceon(const Glaceon&);
@@ -31,7 +32,7 @@ class Glaceon : public Ice {
         virtual void interact();
 };
 
-class Onix : public Ground {
+class Onix : public Ground, public SkillOnix() {
     public:
         Onix(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Onix(const Onix&);
@@ -39,7 +40,7 @@ class Onix : public Ground {
         virtual void interact();
 };
 
-class Pikachu : public Electric {
+class Pikachu : public Electric, public SkillPikachu {
     public:
         Pikachu(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Pikachu(const Pikachu&);
@@ -47,7 +48,7 @@ class Pikachu : public Electric {
         virtual void interact();
 };
 
-class Squirtle : public Water {
+class Squirtle : public Water, public SkillSquirtle {
     public:
         Squirtle(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Squirtle(const Squirtle&);
@@ -55,7 +56,7 @@ class Squirtle : public Water {
         virtual void interact();
 };
 
-class Rotom : public FireElectric {
+class Rotom : public FireElectric, public SkillRotom {
     public:
         Rotom(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Rotom(const Rotom&);
@@ -63,7 +64,7 @@ class Rotom : public FireElectric {
         virtual void interact();
 };
 
-class Wooper : public WaterGround {
+class Wooper : public WaterGround, public SkillWooper() {
     public:
         Wooper(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Wooper(const Wooper&);
@@ -71,7 +72,7 @@ class Wooper : public WaterGround {
         virtual void interact();
 };
 
-class Cloyster : public WaterIce {
+class Cloyster : public WaterIce, public SkillCloyster {
     public:
         Cloyster(string name, string* parentname, string* parentspecies, Skill* skill, int numskill);
         Cloyster(const Cloyster&);

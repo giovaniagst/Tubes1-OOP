@@ -6,12 +6,13 @@
 using namespace std;
 
 Charizard::Charizard(string name, string* parentname, string* parentspecies, Skill* skill, int numskill) :
-Engimon(name, parentname, parentspecies, skill, {"Fire", ""} , numskill) {
-    //
+Engimon(name, parentname, parentspecies, , {"Fire", ""} , numskill) {
+
+    skill =
 }
 
 Charizard::Charizard(const Charizard& c) : Engimon(c.getName(), c.getParentName(), c.getParentSpecies(), c.getSkill(), {"Fire", ""}, c.getNumSkill()) {
-    //
+    // 
 }
 
 Charizard& Charizard::operator=(const Charizard& c) {

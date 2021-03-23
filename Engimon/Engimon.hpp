@@ -11,7 +11,7 @@ class Engimon {
   public:
     // ctor, cctor, dtor, operator
     Engimon();
-    Engimon(string name, string* parentname, string* parentspecies, Skill* skill, string* element, int num_skill);
+    Engimon(string name, string* parentname, string* parentspecies, string* element, int num_skill);
     Engimon(const Engimon&);
     virtual ~Engimon();
     Engimon& operator=(const Engimon&);
