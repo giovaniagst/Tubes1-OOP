@@ -4,13 +4,14 @@
 
 #include <iostream>
 #include <string>
-#include "Engimon.hpp"
+#include "../Engimon/Engimon.hpp"
 #include "../Map/Map.hpp"
 #include<array> // for array, at()
 #include<tuple> // for get()
 using namespace std;
 
 // Inventory<Engimon, >
+
 
 class Player {
   
@@ -34,7 +35,7 @@ class Player {
     void printlistEngimon();
     void printActiveEngimon();
     void changeActiveEngimon(string Engimon);
-    void doBreeding(Engimon x, Engimon y);
+    void doBreeding(string Engimon1, string Engimon2);
     void skill();
    
     // void battle();
@@ -42,7 +43,8 @@ class Player {
 
   private:
     string nama;
-    Engimon* engimonKepemilikan;
+    array<Engimon,100> engimonKepemilikan;
+    array<Skillitem,100> Skillitem;
     int jumlahEngimonKepemilikan;
     Engimon* activeEngimon;
     // Inventory<typename T, int x>;

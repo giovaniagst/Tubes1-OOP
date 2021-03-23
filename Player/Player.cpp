@@ -17,7 +17,7 @@ Player::Player(string nama){
 }
 
 Player::~Player(){
-    delete engimonKepemilikan;
+   
 }
 
 string Player::getName(){
@@ -25,7 +25,7 @@ string Player::getName(){
 }
 
 
-Engimon* Player::getlistEngimon(){
+array<Engimon,100>  Player::getlistEngimon(){
     return this->engimonKepemilikan;
 }
 int Player::getJumlahEngimon(){
@@ -93,12 +93,12 @@ void Player::battle(){
     cout << "battle telah dimulai " << endl;
 }
 
-void Player::doBreeding(Engimon x, Engimon y){
-
+void Player::doBreeding(string Engimon1, string Engimon2){
+    this->engimonKepemilikan.
 }
 
 void Player::skill(){
-    
+
 }
 
 
