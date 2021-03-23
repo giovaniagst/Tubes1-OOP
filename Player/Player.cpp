@@ -1,6 +1,6 @@
 #include "Player.hpp"
 #include <iostream>
-#include <cstdio>
+
 
 using namespace std;
 
@@ -15,40 +15,42 @@ Player::Player(string nama){
 }
 
 Player::~Player(){
-    delete EngimonKepemilikan;
+    // delete EngimonKepemilikan;
 }
 
-void Player::move(Map  m,string command){
+void Player::move(Map* m,string command){
     if (command == "up"){
-        m.Up();
+        (*m).Up();
     }else if (command == "left"){
-        m.Left();
+        (*m).Left();
     }else if ((command == "right")){
-        m.Right();
+        (*m).Right();
     }else{
-        m.Down();
+        (*m).Down();
     }
 };
-
-void Player::battle(){
+Engimon* Player::getlistEngimon(){
     
 }
-void Player::listEngimon(){
+void Player::battle(){
 
 }
+// void Player::listEngimon(){
+
+// }
 void Player::whatEngimon(){
 
 }
 void Player::changeEngimon(){
 
 }
-void Player::doBreeding(){
+// void Player::doBreeding(Engimon x, Engimon y){
 
-}
+// }
 void Player::skill(){
 
 }
-void Player::battle(){
-    
-}
+// void Player::battle(){
+
+// }
 

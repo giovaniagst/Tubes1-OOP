@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Engimon.hpp"
-#include "Map.hpp"
+#include "../Map/Map.hpp"
 using namespace std;
 
 // Inventory<Engimon, >
@@ -18,23 +18,25 @@ class Player {
     ~Player();
     // Player& operator=(const Player&);
     
-    // getter & setter
+    // getter & se-tter
 
     string getName();
-    Engimon getEngimon();
-    void move(Map  x, string command);
+    Engimon* getlistEngimon();
+    void move(Map* x, string command);
     void battle();
-    void listEngimon();
+    // void listEngimon();
     void whatEngimon();
     void changeEngimon();
-    void doBreeding();
+    // void doBreeding(Engimon x, Engimon y);
     void skill();
-    void battle();
+    void addEngimon(Engimon e);
+    // void battle();
     // Inventory<typename,int> getInventory();
 
   private:
     string nama;
     Engimon* EngimonKepemilikan;
+    int jumlahEngimonKepemilikan;
     // Inventory<typename T, int x>;
 };
   

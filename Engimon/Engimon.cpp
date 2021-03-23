@@ -28,7 +28,7 @@ Engimon::Engimon(string name, string* parentname, string* parentspecies, Skill* 
         parent_name[i] = parentname[i];
     }
     parent_species = new string[2];
-    for (int i = 0; i < 2; ++) {
+    for (int i = 0; i < 2; i++) {
         parent_species[i] = parentspecies[i];
     }
     num_skill = num_skill;
@@ -213,12 +213,17 @@ void Engimon::printInfo() {
     //     cout << " " << i << ". " << skills[i] << endl; // nunggu class skill dulu ya huhu
     // }
     cout << "Element";
-    if (strcmp(elements[1], "") != 0)) {
+    // if (strcmp(elements[1], "") != 0) {
+    if (elements[1]==""){
         cout << "s: " << elements[0] << ", " << elements[1] << endl;
     } else {
-        cout << ": " << element[0] << endl;
+        cout << ": " << elements[0] << endl;
     }
     cout << "Level : " << level << endl;
     cout << "Experience : " << experience << endl;
     cout << "Cumulative Experience : " << cumulative_experience << endl;
+}
+
+void Engimon::interact(){
+    cout << "class engimon utama" << endl;   
 }

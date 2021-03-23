@@ -1,0 +1,1 @@
+g++ -c ./Map/Map.cpp ./Map/Map.hpp
