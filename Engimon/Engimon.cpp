@@ -4,7 +4,7 @@
 using namespace std;
 
 int Engimon::max_num_of_skills = 4;
-int Engimon::max_cum_experience = 1000;
+int Engimon::max_cum_experience = 10000;
 
 Engimon::Engimon() {
     name = "noname";
@@ -21,7 +21,7 @@ Engimon::Engimon() {
     active = false;
 }
 
-Engimon::Engimon(string name, string* parentname, string* parentspecies, Skill* skill, string* element, int num_skill) {
+Engimon::Engimon(string name, string* parentname, string* parentspecies, string* element, int num_skill) {
     name = name;
     parent_name = new string[2];  // 2 dulu kalau mau bonus baru ditambah
     for (int i = 0; i < 2; i++) {
@@ -33,9 +33,6 @@ Engimon::Engimon(string name, string* parentname, string* parentspecies, Skill* 
     }
     num_skill = num_skill;
     skills = new Skill[max_num_of_skills];
-    for (int i = 0; i < num_skill; i++) {
-        skills[i] = skill[i];
-    }
     elements = new string[2];
     for (int i = 0; i < 2; i++) {
         elements[i] = element[i];
