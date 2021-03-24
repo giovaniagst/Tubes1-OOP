@@ -5,13 +5,10 @@ Skill::Skill() {
     this->mastery_level = 1;
     this->elements = new string[5]; // karena ada 5 elemen jadi kapasitas selalu 5
 }
-Skill::Skill(int bp, string* elmts) {
+Skill::Skill(int bp) {
     base_power = bp;
     mastery_level = 1; // asumsi setiap buat skill baru mastery level mulai dari 1
     elements = new string[5];
-    for (int i = 0; i < 5; i++) {
-        elements[i] = elmts[i];
-    }
 }
 Skill::Skill(const Skill& s) {
     base_power = s.base_power;

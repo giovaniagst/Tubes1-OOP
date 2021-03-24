@@ -6,7 +6,7 @@
 using namespace std;
 
 class Skill {
-    private:
+    protected:
         int base_power;
         int mastery_level;
         string* elements;
@@ -14,7 +14,7 @@ class Skill {
 
     public:
         Skill();
-        Skill(int bp, string* elmts);
+        Skill(int bp);
         Skill(const Skill& s);
         Skill& operator=(const Skill& s);
         virtual ~Skill();

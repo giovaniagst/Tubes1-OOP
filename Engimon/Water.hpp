@@ -13,4 +13,4 @@ class Water : public Engimon {
         Water& operator=(const Water&);
 };
 
-#endifr
+#endif
