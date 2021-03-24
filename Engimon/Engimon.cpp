@@ -21,7 +21,7 @@ Engimon::Engimon() {
     active = false;
 }
 
-Engimon::Engimon(string name, string* parentname, string* parentspecies, string* element, int num_skill) {
+Engimon::Engimon(string name, string* parentname, string* parentspecies, int num_skill) {
     name = name;
     parent_name = new string[2];  // 2 dulu kalau mau bonus baru ditambah
     for (int i = 0; i < 2; i++) {
@@ -34,9 +34,6 @@ Engimon::Engimon(string name, string* parentname, string* parentspecies, string*
     num_skill = num_skill;
     skills = new Skill[max_num_of_skills];
     elements = new string[2];
-    for (int i = 0; i < 2; i++) {
-        elements[i] = element[i];
-    }
     level = 0;
     experience = 0;
     cumulative_experience = 0;
@@ -225,8 +222,8 @@ void Engimon::interact() {
     cout << "class engimon utama" << endl;   
 }
 
-void Engimon::learn(Skill s) {
-    string* elmts = s.getElements();
+void Engimon::learn(Skill* s) {
+    string* elmts = s->getElements();
     bool found;
     int i = 0;
     int jmlSkill = 0;
@@ -234,10 +231,10 @@ void Engimon::learn(Skill s) {
         for (int e = 0; e < 2; e++) {
             if (elmts[i] == elements[e]) {
                 if (num_skill < max_num_of_skills) {
-                    Skill skills[num_skill] = Skill(s);
+                    skills[num_skill] = Skill(*s);
                     num_skill++;
-                    jmlSkill = s.getJumlah();
-                    s.setJumlah(jmlSkill);
+                    jmlSkill = s->getJumlah();
+                    s->setJumlah(jmlSkill);
                     cout << "Skill ditambahkan" << endl;
                 } else {
                     // Skill penuh
@@ -249,9 +246,9 @@ void Engimon::learn(Skill s) {
                         int slot;
                         cin >> slot;
                         if (slot < 5 && slot > 0) {
-                            Skill skills[slot-1] = Skill(s);
-                            jmlSkill = s.getJumlah();
-                            s.setJumlah(jmlSkill);
+                            skills[slot-1] = Skill(*s);
+                            jmlSkill = s->getJumlah();
+                            s->setJumlah(jmlSkill);
                             cout << "Skill ditambahkan" << endl;
                         } else {
                             cout << "Penambahan skill dibatalkan    " << endl;

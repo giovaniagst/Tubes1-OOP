@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class Engimon {
+class Engimon : public Skill {
   public:
     // ctor, cctor, dtor, operator
     Engimon();
-    Engimon(string name, string* parentname, string* parentspecies, string* element, int num_skill);
+    Engimon(string name, string* parentname, string* parentspecies, int num_skill);
     Engimon(const Engimon&);
     virtual ~Engimon();
     Engimon& operator=(const Engimon&);
@@ -23,8 +23,8 @@ class Engimon {
     void setParentName(string parent1, string parent2);
     string* getParentSpecies();
     void setParentSpecies(string species1, string species2);
-    // Skill* getSkill();
-    // void setSkill(Skill skill, int idx);
+    Skill* getSkill();
+    void setSkill(Skill skill, int idx);
     string* getElements();
     void setElements(string element1, int i);
     int getLevel();
@@ -33,8 +33,8 @@ class Engimon {
     void setExperience(int experience);
     int getCumulativeExperience(); // cek di main
     void setCumulativeExperience(int cumulative_experience);
-    // int getNumSkill();
-    // void setNumSkill(int num);
+    int getNumSkill();
+    void setNumSkill(int num);
     int getX();
     int getY();
     void setCoordinate(int x, int y);
@@ -45,12 +45,12 @@ class Engimon {
     void levelUp(); // cek di main
     virtual void interact();
     virtual void printInfo();
-    void learn(Skill s);
+    void learn(Skill* s);
     
     // hapus engimon di main
     // cek posisi di class map ya :)
 
-  private:
+  protected:
     string name;
     string* parent_name;
     string* parent_species;

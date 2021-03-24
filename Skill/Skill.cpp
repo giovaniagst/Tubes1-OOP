@@ -29,7 +29,7 @@ Skill& Skill::operator=(const Skill& s) {
     }
     return *this;
 }
-virtual Skill::~Skill() {
+Skill::~Skill() {
     delete [] elements;
 }
 
@@ -54,7 +54,7 @@ void Skill::setElements(string* elmts) {
     }
 }
 void Skill::addElement(string elmt) {
-    i = 0;
+    int i = 0;
     while (i < 5) {
         if (elements[i] == "") {
             elements[i] = elmt;

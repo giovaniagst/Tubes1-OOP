@@ -6,16 +6,16 @@
 using namespace std;
 
 Charizard::Charizard(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Fire", ""}, numskill) {
+Fire(name, parentname, parentspecies, numskill) {
     skills[0] = SkillCharizard();
 }
 
-Charizard::Charizard(const Charizard& c) : Engimon(c) {
+Charizard::Charizard(const Charizard& c) : Fire(c) {
     // 
 }
 
 Charizard& Charizard::operator=(const Charizard& c) {
-    Engimon::operator=(c);
+    Fire::operator=(c);
     return *this;
 }
 
@@ -24,16 +24,16 @@ void Charizard::interact() {
 }
 
 Glaceon::Glaceon(string name, string* parentname, string* parentspecies, int numskill) : 
-Engimon(name, parentname, parentspecies, {"Ice", ""}, numskill) {
+Ice(name, parentname, parentspecies, numskill) {
     skills[0] = SkillGlaceon();
 }
 
-Glaceon::Glaceon(const Glaceon& g) : Engimon(g) {
+Glaceon::Glaceon(const Glaceon& g) : Ice(g) {
     //
 }
 
 Glaceon& Glaceon::operator=(const Glaceon& g) {
-    Engimon::operator=(g);
+    Ice::operator=(g);
     return *this;
 }
 
@@ -42,16 +42,16 @@ void Glaceon::interact() {
 }
 
 Onix::Onix(string name, string* parentname, string* parentspecies, int numskill) : 
-Engimon(name, parentname, parentspecies, {"Ground", ""}, numskill) {
+Ground(name, parentname, parentspecies, numskill) {
     skills[0] = SkillOnix();
 }
 
-Onix::Onix(const Onix& o) : Engimon(o) {
+Onix::Onix(const Onix& o) : Ground(o) {
     //
 }
 
 Onix& Onix::operator=(const Onix& o) {
-    Engimon::operator=(o);
+    Ground::operator=(o);
     return *this;
 }
 
@@ -60,16 +60,16 @@ void Onix::interact() {
 }
 
 Pikachu::Pikachu(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Electric", ""} , numskill) {
+Electric(name, parentname, parentspecies, numskill) {
     skills[0] = SkillPikachu();
 }
 
-Pikachu::Pikachu(const Pikachu& p) : Engimon(p) {
+Pikachu::Pikachu(const Pikachu& p) : Electric(p) {
     //
 }
 
 Pikachu& Pikachu::operator=(const Pikachu& p) {
-    Engimon::operator=(p);
+    Electric::operator=(p);
     return *this;
 }
 
@@ -78,16 +78,16 @@ void Pikachu::interact() {
 }
 
 Squirtle::Squirtle(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Water", ""} , numskill) {
+Water(name, parentname, parentspecies, numskill) {
     skills[0] = SkillSquirtle();
 }
 
-Squirtle::Squirtle(const Squirtle& s) : Engimon(s) {
+Squirtle::Squirtle(const Squirtle& s) : Water(s) {
     //
 }
 
 Squirtle& Squirtle::operator=(const Squirtle& s) {
-    Engimon::operator=(s);
+    Water::operator=(s);
     return *this;
 }
 
@@ -96,16 +96,16 @@ void Squirtle::interact() {
 }
 
 Rotom::Rotom(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Fire", "Electric"} , numskill) {
+FireElectric(name, parentname, parentspecies, numskill) {
     skills[0] = SkillRotom();
 }
 
-Rotom::Rotom(const Rotom& r) : Engimon(r) {
+Rotom::Rotom(const Rotom& r) : FireElectric(r) {
     //
 }
 
 Rotom& Rotom::operator=(const Rotom& r) {
-    Engimon::operator=(r);
+    FireElectric::operator=(r);
     return *this;
 }
 
@@ -115,16 +115,16 @@ void Rotom::interact() {
 
 
 Wooper::Wooper(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Water", "Ground"} , numskill) {
+WaterGround(name, parentname, parentspecies, numskill) {
     skills[0] = SkillWooper();
 }
 
-Wooper::Wooper(const Wooper& w) : Engimon(w) {
+Wooper::Wooper(const Wooper& w) : WaterGround(w) {
     //
 }
 
 Wooper& Wooper::operator=(const Wooper& w) {
-    Engimon::operator=(w);
+    WaterGround::operator=(w);
     return *this;
 }
 
@@ -133,16 +133,16 @@ void Wooper::interact() {
 }
 
 Cloyster::Cloyster(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Water", "Ice"} , numskill) {
+WaterIce(name, parentname, parentspecies, numskill) {
     skills[0] = SkillCloyster();
 }
 
-Cloyster::Cloyster(const Cloyster& c) : Engimon(c) {
+Cloyster::Cloyster(const Cloyster& c) : WaterIce(c) {
     //
 }
 
 Cloyster& Cloyster::operator=(const Cloyster& c) {
-    Cloyster::operator=(c);
+    WaterIce::operator=(c);
     return *this;
 }
 

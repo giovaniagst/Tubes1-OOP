@@ -5,8 +5,9 @@
 using namespace std;
 
 WaterIce::WaterIce(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, {"Water", "Ice"}  numskill) {
-    //
+Engimon(name, parentname, parentspecies, numskill) {
+    elements[0] = "Water";
+    elements[1] = "Ice";
 }
 
 WaterIce::WaterIce(const WaterIce& wi) : Engimon(wi) { 
