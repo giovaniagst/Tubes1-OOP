@@ -25,7 +25,7 @@ class Skill {
         void setBasePower(int bp);
         int getMasteryLevel();
         void setMasteryLevel(int ml);
-        string* getElements();
+        string* getElementSkill();
         void setElements(string* elmts);
         bool getBawaan();
         void setBawaan(bool bawaan);

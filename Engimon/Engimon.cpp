@@ -12,7 +12,7 @@ Engimon::Engimon() {
     parent_species = new string[2];
     num_skill = 0;
     skills = new Skill[max_num_of_skills];
-    elements = new string[2];
+    elements = new string[3];
     level = 0;
     experience = 0;
     cumulative_experience = 0;
@@ -140,13 +140,13 @@ void Engimon::setSkill(Skill skill, int idx) {
 }
 string* Engimon::getElements() {
     string* hasil = new string[2];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i <= 1; i++) {
         hasil[i] = elements[i];
     }
     return hasil;
 }
 void Engimon::setElements(string element, int i) {
-    elements[i] = element;
+    this->elements[i] = element;
 }
 int Engimon::getLevel() {
     return level;

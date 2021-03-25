@@ -50,7 +50,7 @@ int Skill::getMasteryLevel() {
 void Skill::setMasteryLevel(int ml) {
     mastery_level = ml;
 }
-string* Skill::getElements() {
+string* Skill::getElementSkill() {
     return elementSkill;
 }
 void Skill::setElements(string* elmts) {

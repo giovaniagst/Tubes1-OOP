@@ -1,1 +1,1 @@
-g++ -c ./Map/Map.cpp ./Map/Map.hpp
+g++ -c ./Engimon/Engimon.cpp ./Engimon/Electric.cpp ./Engimon/Fire.cpp ./Engimon/FireElectric.cpp ./Engimon/Ground.cpp ./Engimon/Ice.cpp ./Engimon/Species.cpp ./Engimon/Water.cpp ./Engimon/WaterGround.cpp ./Engimon/WaterIce.cpp ./Skill/Skill.cpp ./Skill/Skills.hpp
