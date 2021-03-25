@@ -21,7 +21,7 @@ Engimon::Engimon() {
     active = false;
 }
 
-Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill) {
+Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill, int X, int Y) {
     name = name;
     species_name = species_name;
     parent_name = new string[2]; // 2 dulu kalau mau bonus baru ditambah
@@ -38,8 +38,8 @@ Engimon::Engimon(string name, string species_name, string* parentname, string* p
     level = 0;
     experience = 0;
     cumulative_experience = 0;
-    x = 0;
-    y = 0;
+    x = X;
+    y = Y;
     active = false;
 }
 
@@ -107,7 +107,7 @@ string Engimon::getName() {
 }
 void Engimon::setName(string name) {
     this->name = name;
-} 
+}
 string* Engimon::getParentName() {
     string* parentName = new string[2];
     for (int i = 0; i < 2; i++) {
@@ -232,5 +232,5 @@ void Engimon::printInfo() {
 }
 
 void Engimon::interact() {
-    cout << "class engimon utama" << endl;   
+    cout << "class engimon utama" << endl;
 }

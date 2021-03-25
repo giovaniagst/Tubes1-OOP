@@ -18,7 +18,7 @@ using namespace std;
 
 class Charizard : public Fire, public SkillCharizard {
     public:
-        Charizard(string name, string* parentname, string* parentspecies, int numskill);
+        Charizard(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Charizard(const Charizard&);
         Charizard& operator=(const Charizard&);
         virtual void interact();
@@ -26,7 +26,7 @@ class Charizard : public Fire, public SkillCharizard {
 
 class Glaceon : public Ice, public SkillGlaceon {
     public:
-        Glaceon(string name, string* parentname, string* parentspecies, int numskill);
+        Glaceon(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Glaceon(const Glaceon&);
         Glaceon& operator=(const Glaceon&);
         virtual void interact();
@@ -34,7 +34,7 @@ class Glaceon : public Ice, public SkillGlaceon {
 
 class Onix : public Ground, public SkillOnix {
     public:
-        Onix(string name, string* parentname, string* parentspecies, int numskill);
+        Onix(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Onix(const Onix&);
         Onix& operator=(const Onix&);
         virtual void interact();
@@ -42,7 +42,7 @@ class Onix : public Ground, public SkillOnix {
 
 class Pikachu : public Electric, public SkillPikachu {
     public:
-        Pikachu(string name, string* parentname, string* parentspecies, int numskill);
+        Pikachu(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Pikachu(const Pikachu&);
         Pikachu& operator=(const Pikachu&);
         virtual void interact();
@@ -50,7 +50,7 @@ class Pikachu : public Electric, public SkillPikachu {
 
 class Squirtle : public Water, public SkillSquirtle {
     public:
-        Squirtle(string name, string* parentname, string* parentspecies, int numskill);
+        Squirtle(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Squirtle(const Squirtle&);
         Squirtle& operator=(const Squirtle&);
         virtual void interact();
@@ -58,7 +58,7 @@ class Squirtle : public Water, public SkillSquirtle {
 
 class Rotom : public FireElectric, public SkillRotom {
     public:
-        Rotom(string name, string* parentname, string* parentspecies, int numskill);
+        Rotom(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Rotom(const Rotom&);
         Rotom& operator=(const Rotom&);
         virtual void interact();
@@ -66,7 +66,7 @@ class Rotom : public FireElectric, public SkillRotom {
 
 class Wooper : public WaterGround, public SkillWooper {
     public:
-        Wooper(string name, string* parentname, string* parentspecies, int numskill);
+        Wooper(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Wooper(const Wooper&);
         Wooper& operator=(const Wooper&);
         virtual void interact();
@@ -74,7 +74,7 @@ class Wooper : public WaterGround, public SkillWooper {
 
 class Cloyster : public WaterIce, public SkillCloyster {
     public:
-        Cloyster(string name, string* parentname, string* parentspecies, int numskill);
+        Cloyster(string name, string* parentname, string* parentspecies, int numskill, int X, int Y);
         Cloyster(const Cloyster&);
         Cloyster& operator=(const Cloyster&);
         virtual void interact();

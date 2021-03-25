@@ -5,13 +5,13 @@
 
 using namespace std;
 
-Charizard::Charizard(string name, string* parentname, string* parentspecies, int numskill) :
-Fire(name, "Charizard", parentname, parentspecies, numskill) {
+Charizard::Charizard(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Fire(name, "Charizard", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillCharizard();
 }
 
 Charizard::Charizard(const Charizard& c) : Fire(c) {
-    // 
+    //
 }
 
 Charizard& Charizard::operator=(const Charizard& c) {
@@ -23,8 +23,8 @@ void Charizard::interact() {
     cout << "[" << this->getName() << "]: 불타오르네" << endl;
 }
 
-Glaceon::Glaceon(string name, string* parentname, string* parentspecies, int numskill) : 
-Ice(name, "Glaceon", parentname, parentspecies, numskill) {
+Glaceon::Glaceon(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Ice(name, "Glaceon", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillGlaceon();
 }
 
@@ -41,8 +41,8 @@ void Glaceon::interact() {
     cout << "[" << this->getName() << "]: Hai I'm Glaceon" << endl;
 }
 
-Onix::Onix(string name, string* parentname, string* parentspecies, int numskill) : 
-Ground(name, "Onix", parentname, parentspecies, numskill) {
+Onix::Onix(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Ground(name, "Onix", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillOnix();
 }
 
@@ -59,8 +59,8 @@ void Onix::interact() {
     cout << "[" << this->getName() << "]: Hai I'm Onix" << endl;
 }
 
-Pikachu::Pikachu(string name, string* parentname, string* parentspecies, int numskill) :
-Electric(name, "Pikachu", parentname, parentspecies, numskill) {
+Pikachu::Pikachu(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Electric(name, "Pikachu", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillPikachu();
 }
 
@@ -77,8 +77,8 @@ void Pikachu::interact() {
     cout << "[" << this->getName() << "]: pika pika pika pika" << endl;
 }
 
-Squirtle::Squirtle(string name, string* parentname, string* parentspecies, int numskill) :
-Water(name, "Squirtle", parentname, parentspecies, numskill) {
+Squirtle::Squirtle(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Water(name, "Squirtle", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillSquirtle();
 }
 
@@ -95,8 +95,8 @@ void Squirtle::interact() {
     cout << "[" << this->getName() << "]: splish splash" << endl;
 }
 
-Rotom::Rotom(string name, string* parentname, string* parentspecies, int numskill) :
-FireElectric(name, "Rotom", parentname, parentspecies, numskill) {
+Rotom::Rotom(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+FireElectric(name, "Rotom", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillRotom();
 }
 
@@ -114,8 +114,8 @@ void Rotom::interact() {
 }
 
 
-Wooper::Wooper(string name, string* parentname, string* parentspecies, int numskill) :
-WaterGround(name, "Wooper", parentname, parentspecies, numskill) {
+Wooper::Wooper(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+WaterGround(name, "Wooper", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillWooper();
 }
 
@@ -132,8 +132,8 @@ void Wooper::interact() {
     cout << "[" << this->getName() << "]: woooPpPppSiiiE" << endl;
 }
 
-Cloyster::Cloyster(string name, string* parentname, string* parentspecies, int numskill) :
-WaterIce(name, "Cloyster", parentname, parentspecies, numskill) {
+Cloyster::Cloyster(string name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+WaterIce(name, "Cloyster", parentname, parentspecies, numskill, X, Y) {
     skills[0] = SkillCloyster();
 }
 
