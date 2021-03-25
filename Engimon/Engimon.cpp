@@ -12,7 +12,7 @@ Engimon::Engimon() {
     parent_species = new string[2];
     num_skill = 0;
     skills = new Skill[max_num_of_skills];
-    elements = new string[3];
+    elements = new string[2];
     level = 0;
     experience = 0;
     cumulative_experience = 0;
@@ -21,7 +21,7 @@ Engimon::Engimon() {
     active = false;
 }
 
-Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill) {
+Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill, int X, int Y) {
     name = name;
     species_name = species_name;
     parent_name = new string[2]; // 2 dulu kalau mau bonus baru ditambah
@@ -38,8 +38,8 @@ Engimon::Engimon(string name, string species_name, string* parentname, string* p
     level = 0;
     experience = 0;
     cumulative_experience = 0;
-    x = 0;
-    y = 0;
+    x = X;
+    y = Y;
     active = false;
 }
 
@@ -107,7 +107,7 @@ string Engimon::getName() {
 }
 void Engimon::setName(string name) {
     this->name = name;
-} 
+}
 string* Engimon::getParentName() {
     string* parentName = new string[2];
     for (int i = 0; i < 2; i++) {
@@ -140,13 +140,13 @@ void Engimon::setSkill(Skill skill, int idx) {
 }
 string* Engimon::getElements() {
     string* hasil = new string[2];
-    for (int i = 0; i <= 1; i++) {
+    for (int i = 0; i < 1; i++) {
         hasil[i] = elements[i];
     }
     return hasil;
 }
 void Engimon::setElements(string element, int i) {
-    this->elements[i] = element;
+    elements[i] = element;
 }
 int Engimon::getLevel() {
     return level;
@@ -232,5 +232,5 @@ void Engimon::printInfo() {
 }
 
 void Engimon::interact() {
-    cout << "class engimon utama" << endl;   
+    cout << "class engimon utama" << endl;
 }

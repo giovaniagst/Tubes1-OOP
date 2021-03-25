@@ -4,8 +4,8 @@
 
 using namespace std;
 
-Ice::Ice(string name, string species_name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, species_name, parentname, parentspecies, numskill) {
+Ice::Ice(string name, string species_name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Engimon(name, species_name, parentname, parentspecies, numskill, X, Y) {
     elements[0] = "Ice";
     elements[1] = "";
 }

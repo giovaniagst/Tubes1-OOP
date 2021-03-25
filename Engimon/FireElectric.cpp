@@ -4,13 +4,13 @@
 
 using namespace std;
 
-FireElectric::FireElectric(string name, string species_name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, species_name, parentname, parentspecies, numskill) {
+FireElectric::FireElectric(string name, string species_name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Engimon(name, species_name, parentname, parentspecies, numskill, X, Y) {
     elements[0] = "Fire";
     elements[1] = "Electric";
 }
 
-FireElectric::FireElectric(const FireElectric& fe) : Engimon(fe) { 
+FireElectric::FireElectric(const FireElectric& fe) : Engimon(fe) {
     //
 }
 

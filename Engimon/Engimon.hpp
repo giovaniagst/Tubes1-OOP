@@ -11,11 +11,11 @@ class Engimon {
   public:
     // ctor, cctor, dtor, operator
     Engimon();
-    Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill);
+    Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill, int X, int Y);
     Engimon(const Engimon&);
     virtual ~Engimon();
     Engimon& operator=(const Engimon&);
-    
+
     // getter & setter
     string getName();
     void setName(string name);
@@ -44,14 +44,14 @@ class Engimon {
     string getSpecies();
     void setSpecies(string);
 
-    // other methods 
+    // other methods
     void levelUp(); // cek di main
     virtual void interact();
     virtual void printInfo();
-    
+
     // hapus engimon di main
     // cek posisi di class map ya :)
-    
+
   protected:
     string name;
     string species_name;

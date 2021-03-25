@@ -4,13 +4,13 @@
 
 using namespace std;
 
-WaterGround::WaterGround(string name, string species_name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, species_name, parentname, parentspecies, numskill) {
+WaterGround::WaterGround(string name, string species_name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Engimon(name, species_name, parentname, parentspecies, numskill, X, Y) {
     elements[0] = "Water";
     elements[1] = "Ground";
 }
 
-WaterGround::WaterGround(const WaterGround& wg) : Engimon(wg) { 
+WaterGround::WaterGround(const WaterGround& wg) : Engimon(wg) {
     //
 }
 

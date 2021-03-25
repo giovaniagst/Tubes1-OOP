@@ -4,13 +4,13 @@
 
 using namespace std;
 
-WaterIce::WaterIce(string name, string species_name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, species_name, parentname, parentspecies, numskill) {
+WaterIce::WaterIce(string name, string species_name, string* parentname, string* parentspecies, int numskill, int X, int Y) :
+Engimon(name, species_name, parentname, parentspecies, numskill, X, Y) {
     elements[0] = "Water";
     elements[1] = "Ice";
 }
 
-WaterIce::WaterIce(const WaterIce& wi) : Engimon(wi) { 
+WaterIce::WaterIce(const WaterIce& wi) : Engimon(wi) {
     //
 }
 
