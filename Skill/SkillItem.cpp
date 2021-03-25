@@ -7,11 +7,11 @@ SkillItem::SkillItem() : Skill() {
     jumlah = 0;
 }
 
-SkillItem::SkillItem(int base, int jumlah) : Skill(base) {
+SkillItem::SkillItem(int base, int jumlah, string skill_name) : Skill(base, skill_name) {
     this->jumlah = jumlah;
 }
 
-SkillItem::SkillItem(const SkillItem& si) : Skill(si.base_power) {
+SkillItem::SkillItem(const SkillItem& si) : Skill(si.base_power, si.namaSkill) {
     this->jumlah = si.jumlah;
 }
 SkillItem SkillItem::operator=(const SkillItem& si) {
@@ -35,7 +35,7 @@ void SkillItem::learn(Engimon e) {
     bool found = false;
     int i = 0;
     int jmlSkill = 0;
-    Skill skill = Skill(this->getBasePower());
+    Skill skill = Skill(this->getBasePower(), this->getNamaSkill());
     skill.setElements(this->elementSkill);
     while (!found || elmts[i] != "" || i < 5) { // untuk elemen skill baru
         for (int j = 0; j < 2; j++) { // untuk elemen engimon

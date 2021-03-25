@@ -10,7 +10,7 @@ class SkillItem : public Skill {
 
     public:
         SkillItem();
-        SkillItem(int base, int jumlah);
+        SkillItem(int base, int jumlah, string skill_name);
         SkillItem(const SkillItem& si);
         SkillItem operator=(const SkillItem& si);
 
