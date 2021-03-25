@@ -256,7 +256,7 @@ void Player::doBreeding(string Engimon1, string Engimon2){
         // masukkan ke inventory pemain
     } else {
         string elemenanak = smax(l[idx1].getElements()[0], l[idx2].getElements()[0]);
-        if (elemenanak != "0") {
+        if (elemenanak == "0") {
             // construct anak yang spesies dan elemen sama seperti elemenanak
             // masukkan ke inventory pemain
         } else {
@@ -266,34 +266,29 @@ void Player::doBreeding(string Engimon1, string Engimon2){
     }
 
     // pemberian skill
-    int indukberskill = 0;
-    if (l[idx1].getNumSkill() == 0) {
-        indukberskill = 2;
-    }
-    if (l[idx2].getNumSkill() == 0) {
-        if (indukberskill == 2) {
-         indukberskill = 3;
-        } else {
-         indukberskill = 1;
+    int countskill = 0;
+    int iter1 = l[idx1].getNumSkill();
+    int iter2 = l[idx2].getNumSkill()
+    while (countskill < 3 && countskill < iter1 + iter2) {
+        // salin skill ke suatu list, pilih dari yang bernama sama
+        Skill* s = new Skill[iter1 + iter2];
+        for (int i = 0; i < iter1; i++) {
+            s[i] = l[idx1].getSkill(i);
         }
-    }
-    if (indukberskill != 3) { // kalau ada yang punya skill
-        int countskill = 0;
-        if (indukberskill == 0) { // kalau dua2nya berskill INI BELOM
-            while (countskill < 3 && countskill < (l[idx1].getNumSkill() + l[idx2].getNumSkill())) {
-                int masterymax = 0;
-                for (int i = 0; i < l[idx1].getNumSkill(); i++) {
-                    if (l[idx1].getSkill(i) ) {}
-                }
-            }
-        } else { // hanya satu yg punya skill
-            while (countskill < 3 && countskill < (l[indukberskill].getNumSkill()) {
-                int masterymax[3] = new int[3]; // deklarasi array bener gini?
-                for (int i = 0; i < l[indukberskill].getNumSkill(); i++) {
-                    if (l[indukberskill].getSkill(i) ) {}
-                }
-            }
+        for (int i = 0; i < iter2; i++) {
+            if (l[idx1].getSkill(i).get)
+                if (l[idx1].getSkill(i).getMasteryLevel() == l[idx2].getSkill(i).getMasteryLevel() /*
+            Kedua parent memiliki mastery level yang sama, maka skill
+            yang di-inherit memiliki mastery level bernilai mastery level
+            parent A + 1
+            2. Kedua parent memiliki mastery level yang berbeda, maka skill
+            yang di-inherit memiliki mastery level bernilai max(mastery
+            level parent A, mastery level parent B) */
+            s[i + iter1] = l[idx2].getSkill(i);
+            if
         }
+        // ambil skill berdasarkan prio (?)
+        
     }
 }
 

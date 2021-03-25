@@ -11,7 +11,7 @@ class Skill {
         int base_power; 
         int mastery_level;
         bool bawaan;
-        string* elements;
+        string* elementSkill;
 
     public:
         Skill();
