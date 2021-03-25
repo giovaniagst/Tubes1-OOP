@@ -3,16 +3,19 @@
 Skill::Skill() {
     this->base_power = 0;
     this->mastery_level = 1;
+    this->bawaan = false;
     this->elements = new string[5]; // karena ada 5 elemen jadi kapasitas selalu 5
 }
 Skill::Skill(int bp) {
     base_power = bp;
     mastery_level = 1; // asumsi setiap buat skill baru mastery level mulai dari 1
+    bawaan = false;
     elements = new string[5];
 }
 Skill::Skill(const Skill& s) {
     base_power = s.base_power;
     mastery_level = s.mastery_level;
+    bawaan = s.bawaan;
     elements = new string[5];
     for (int i = 0; i < 5; i++) {
         elements[i] = s.elements[i];
@@ -21,6 +24,7 @@ Skill::Skill(const Skill& s) {
 Skill& Skill::operator=(const Skill& s) {
     base_power = s.base_power;
     mastery_level = s.mastery_level;
+    bawaan = s.bawaan;
     for (int i = 0; i < 5; i++) {
         elements[i] = s.elements[i];
     }
@@ -50,6 +54,14 @@ void Skill::setElements(string* elmts) {
         elements[i] = elmts[i];
     }
 }
+
+bool Skill::getBawaan() {
+    return bawaan;
+}
+void Skill::setBawaan(bool bawaan) {
+    this->bawaan = bawaan;
+}
+
 void Skill::addElement(string elmt) {
     int i = 0;
     while (i < 5) {
@@ -62,3 +74,5 @@ void Skill::addElement(string elmt) {
         }
     }
 }
+
+

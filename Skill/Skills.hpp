@@ -9,72 +9,91 @@ using namespace std;
 class SkillCharizard : public Skill {
     public:
         SkillCharizard() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Fire";
+            for (int i = 1; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillGlaceon : public Skill {
     public:
         SkillGlaceon() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Ice";
+            for (int i = 1; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillOnix : public Skill {
     public:
         SkillOnix() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Ground";
+            for (int i = 1; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillPikachu : public Skill {
     public:
         SkillPikachu() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Electric";
+            for (int i = 1; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillSquirtle : public Skill {
     public:
         SkillSquirtle() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Water";
+            for (int i = 1; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillRotom : public Skill {
     public:
         SkillRotom() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Fire";
+            elements[1] = "Electric";
+            for (int i = 2; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillWooper : public Skill {
     public:
         SkillWooper() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Water";
+            elements[1] = "Ground";
+            for (int i = 2; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 
 class SkillCloyster : public Skill {
     public:
         SkillCloyster() : Skill(10) {
-            for (int i = 0; i < 5; i++) {
+            elements[0] = "Water";
+            elements[1] = "Ice";
+            for (int i = 2; i < 5; i++) {
                 elements[i] = "";
             }
+            bawaan = true;
         }
 };
 

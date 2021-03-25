@@ -8,8 +8,9 @@ using namespace std;
 
 class Skill {
     protected:
-        int base_power;
+        int base_power; 
         int mastery_level;
+        bool bawaan;
         string* elements;
 
     public:
@@ -25,8 +26,9 @@ class Skill {
         void setMasteryLevel(int ml);
         string* getElements();
         void setElements(string* elmts);
+        bool getBawaan();
+        void setBawaan(bool bawaan);
         void addElement(string elmt);
-        
 };
 
 #endif

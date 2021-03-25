@@ -35,7 +35,8 @@ void SkillItem::learn(Engimon e) {
     bool found = false;
     int i = 0;
     int jmlSkill = 0;
-    Skill skill = *this;
+    Skill skill = Skill(this->getBasePower());
+    skill.setElements(this->elements);
     while (!found || elmts[i] != "" || i < 5) { // untuk elemen skill baru
         for (int j = 0; j < 2; j++) { // untuk elemen engimon
             if (elmts[i] == elements[j]) {

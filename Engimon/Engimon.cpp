@@ -18,6 +18,7 @@ Engimon::Engimon() {
     x = 0;
     y = 0;
     active = false;
+    
 }
 
 Engimon::Engimon(string name, string* parentname, string* parentspecies, int num_skill) {

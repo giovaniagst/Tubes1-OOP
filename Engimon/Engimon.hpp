@@ -49,7 +49,7 @@ class Engimon {
     
     // hapus engimon di main
     // cek posisi di class map ya :)
-
+    
   protected:
     string name;
     string* parent_name;

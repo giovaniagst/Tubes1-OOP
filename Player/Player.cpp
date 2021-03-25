@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "../Engimon/Engimon.hpp"
 #include <iostream>
 
 
@@ -6,13 +7,13 @@ using namespace std;
 
 Player::Player(){
     this->nama = "default";
-    this->engimonKepemilikan = new Engimon[100];
+    // this->engimonKepemilikan = new Engimon[100];
     this->jumlahEngimonKepemilikan = 0;
 }
 
 Player::Player(string nama){
     this->nama = nama;
-    this->engimonKepemilikan = new Engimon[100];
+    // this->engimonKepemilikan = new Engimon[100];
     this->jumlahEngimonKepemilikan = 0;
 }
 
@@ -25,14 +26,14 @@ string Player::getName(){
 }
 
 
-array<Engimon,100>  Player::getlistEngimon(){
+array<Engimon,100> Player::getlistEngimon(){
     return this->engimonKepemilikan;
 }
 int Player::getJumlahEngimon(){
     return this->jumlahEngimonKepemilikan;
 }
 
-Engimon* Player::getActiveEngimon(){
+Engimon Player::getActiveEngimon(){
     return this->activeEngimon;
 }
 
@@ -74,35 +75,230 @@ void Player::printlistEngimon(){
 }
 
 void Player::printActiveEngimon(){
-    cout << (*(getActiveEngimon())).getName() << " aktif"<< endl;
+    cout << ((getActiveEngimon())).getName() << " aktif"<< endl;
 }
 
 void Player::changeActiveEngimon(string engimon){
     Engimon* l = getlistEngimon();
     for (int i =0; i<jumlahEngimonKepemilikan;i++){ 
         if (l[i].getName() == engimon){
-            (*(this->activeEngimon)).setActive(false);
+            ((this->activeEngimon)).setActive(false);
             l[i].setActive(true);
-            (*(this->activeEngimon)) = l[i];
+            ((this->activeEngimon)) = l[i];
         } else {
             cout << "kamu tidak mempunyai Engimon tersebut" << endl;
         }
     }
 }
-void Player::battle(){
-    cout << "battle telah dimulai " << endl;
+void Player::battle(Engimon lawan){
+    cout << "battle telah dimulai "<< endl;
+    float myElementAdvantage,enemyElementAdvantage
+    Engimon my = this->getActiveEngimon();
+    string* myEl = my.getElements();
+    string* enemyEl = enemyEl.getElements();
+    
+    myElementAdvantage = compareElement(myEl,enemyEl);
+    enemyElementAdvantage = compareElement(myEl,enemyEl);
+    int myPowerLevel, enemyPowerLevel;
+    
+    myPowerLevel = my.getLevel() * int(myElementAdvantage) + sumSkill(me);
+    enemyPowerLevel = lawan.getLevel() * int(enemyElementAdvantage) + sumSkill(lawan);
+    cout << "Engimon "<< my.getName() << endl;
+    cout << "Power : " << myPowerLevel << endl;
+    cout << "VS" << endl;
+    cout << "Engimon" << lawan.getName() << endl;
+    cout << "Power : " << enemyPowerLevel << endl;
+    if (myPowerLevel > enemyPowerLevel) {
+        //add engimon
+        //dapet skill
+        //tambah experience
+    }else{
+        // remove engimon
+    }
+}
+
+int sumSkill(Engimon me){
+    int mysum = 0;
+    for (int i =0; i<my.getNumSkill();i++){
+        mysum += me.getSkill(i);
+    }
+    return mySum ;
+}
+
+
+float compareElementAd(string * myEl,string * enemyEl){
+    if (myEl[1] != ""){
+        if (enemyEl[1] != ""){
+            elementAdvantage = imax(imax(compareElement(myEl[0],enemyEl[0]),compareElement(myEl[0],enemyEl[1]))
+            ,imax(compareElement(myEl[1],enemyEl[0]),compareElement(myEl[1],enemyEl[1])));
+        }else{
+            elementAdvantage = imax(compareElement(myEl[0],enemyEl[0]),compareElement(myEl[1],enemyEl[0]));
+        }
+    }else{
+        if (enemyEl[1] != ""){
+            elementAdvantage = imax(compareElement(compareElement(myEl[0],enemyEl[0]),compareElement(myEl[0],enemyEl[1])));
+        }else{
+            elementAdvantage = compareElement(compareElement(myEl[0],enemyEl[0];
+        }
+    }
+};
+
+float imax(int x, int y){ // dipakai di battle dan breeding
+    return x > y ? x : y;
+}
+
+string smax(string x, string y){ // dipakai di breeding
+    if (compareElement(x,y) > compareElement(y,x)) {
+        return x;
+    } else if (compareElement(x,y) < compareElement(y,x)) {
+        return y;
+    } else {
+        return "0";
+    }
+}
+float compareElement(string x, string y){
+    if (x == "Fire"){
+        if (y == "Fire"){
+            return 1.0;
+        }else if (y == "Water"){
+            return 0;
+        }else if (y == "Electric"){
+            return 1.0;
+        }else if (y == "Ground"){
+            return 0.5;
+        }else {
+            return 2.0;
+        }
+    }else if (x == "Water"){
+        if (y == "Fire"){
+            return 2.0;
+        }else if (y == "Water"){
+            return 1.0;
+        }else if (y == "Electric"){
+            return 0;
+        }else if (y == "Ground"){
+            return 1;
+        }else {
+            return 1;
+        }
+    }else if (x == "Electric"){
+        if (y == "Fire"){
+            return 1.0;
+        }else if (y == "Water"){
+            return 2.0;
+        }else if (y == "Electric"){
+            return 1.0;
+        }else if (y == "Ground"){
+            return 0;
+        }else {
+            return 1.5;
+        }
+    }else if (x == "Ground"){
+        if (y == "Fire"){
+            return 1.5;
+        }else if (y == "Water"){
+            return 1.0;
+        }else if (y == "Electric"){
+            return 2.0;
+        }else if (y == "Ground"){
+            return 1.0;
+        }else {
+            return 0;
+        }
+    }else {
+        if (y == "Fire"){
+            return 0;
+        }else if (y == "Water"){
+            return 1;
+        }else if (y == "Electric"){
+            return 0.5;
+        }else if (y == "Ground"){
+            return 2.0;
+        }else {
+            return 1.0;
+        }
+    }
 }
 
 void Player::doBreeding(string Engimon1, string Engimon2){
-    this->engimonKepemilikan.
+    Engimon* l = getlistEngimon();
+    // cari Engimon1
+    int idx1 = -1;
+    for (int i = 0; i < jumlahEngimonKepemilikan; i++) {
+        if (l[i].getName() == Engimon1 && l[i].getLevel() > 30) {
+            idx1 = i;
+        }
+    }
+    if (idx1 == -1) {
+        cout << Engimon1 << " tidak ada atau level tidak cukup" << endl;
+        return;
+    }
+    // cari Engimon2
+    int idx2 = -1;
+    for (int i = 0; i < jumlahEngimonKepemilikan; i++) {
+        if (l[i].getName() == Engimon2 && l[i].getLevel() > 30) {
+            idx2 = i;
+        }
+    }
+    if (idx2 == -1) {
+        cout << Engimon2 << " tidak ada atau level tidak cukup" << endl;
+        return;
+    }
+    // kedua engimon ditemukan dan memenuhi syarat
+    l[idx1].setLevel(l[idx1].getLevel() - 30);
+    l[idx2].setLevel(l[idx2].getLevel() - 30);
+    cout << "Masukkan nama engimon anak: ";
+    string namaanak;
+    cin >> namaanak;
+    // pemberian spesies dan elemen
+    if (l[idx1].getElements()[0] == l[idx2].getElements()[0]) { // iya elemennya cuma 1 no bonus
+        // construct anak yang spesies dan elemen sama seperti induk 1
+        // masukkan ke inventory pemain
+    } else {
+        string elemenanak = smax(l[idx1].getElements()[0], l[idx2].getElements()[0]);
+        if (elemenanak != "0") {
+            // construct anak yang spesies dan elemen sama seperti elemenanak
+            // masukkan ke inventory pemain
+        } else {
+            // construct anak yang spesies dan elemen dari kedua parent (kombinasi 2 elemen)
+            // masukkan ke inventory pemain
+        }
+    }
+
+    // pemberian skill
+    int indukberskill = 0;
+    if (l[idx1].getNumSkill() == 0) {
+        indukberskill = 2;
+    }
+    if (l[idx2].getNumSkill() == 0) {
+        if (indukberskill == 2) {
+         indukberskill = 3;
+        } else {
+         indukberskill = 1;
+        }
+    }
+    if (indukberskill != 3) { // kalau ada yang punya skill
+        int countskill = 0;
+        if (indukberskill == 0) { // kalau dua2nya berskill INI BELOM
+            while (countskill < 3 && countskill < (l[idx1].getNumSkill() + l[idx2].getNumSkill())) {
+                int masterymax = 0;
+                for (int i = 0; i < l[idx1].getNumSkill(); i++) {
+                    if (l[idx1].getSkill(i) ) {}
+                }
+            }
+        } else { // hanya satu yg punya skill
+            while (countskill < 3 && countskill < (l[indukberskill].getNumSkill()) {
+                int masterymax[3] = new int[3]; // deklarasi array bener gini?
+                for (int i = 0; i < l[indukberskill].getNumSkill(); i++) {
+                    if (l[indukberskill].getSkill(i) ) {}
+                }
+            }
+        }
+    }
 }
 
-void Player::skill(){
-
-}
-
-
-// void Player::battle(){
+// void Player::skill(){
 
 // }
+
 

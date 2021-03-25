@@ -27,11 +27,11 @@ class Player {
     string getName();
     Engimon* getlistEngimon();
     int getJumlahEngimon();
-    Engimon* getActiveEngimon();
+    Engimon getActiveEngimon();
 
     void move(Map* x, string command);
     void addEngimon(Engimon e);
-    void battle();
+    void battle(Engimon lawan);
     void printlistEngimon();
     void printActiveEngimon();
     void changeActiveEngimon(string Engimon);
@@ -46,7 +46,7 @@ class Player {
     array<Engimon,100> engimonKepemilikan;
     array<Skillitem,100> Skillitem;
     int jumlahEngimonKepemilikan;
-    Engimon* activeEngimon;
+    Engimon activeEngimon;
     // Inventory<typename T, int x>;
 };
   
