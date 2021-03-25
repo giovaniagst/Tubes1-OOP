@@ -1,7 +1,7 @@
 #ifndef SKILLITEM_HPP
 #define SKILLITEM_HPP
 
-#include "Skill.hpp"
+#include "../Engimon/Engimon.hpp"
 using namespace std;
 
 class SkillItem : public Skill {
@@ -10,11 +10,15 @@ class SkillItem : public Skill {
 
     public:
         SkillItem();
-        SkillItem(int jumlah);
+        SkillItem(int base, int jumlah);
         SkillItem(const SkillItem& si);
         SkillItem operator=(const SkillItem& si);
-        void Learn();
 
+        int getJumlah();
+        void setJumlah(int jml);
+        
+        void addJumlah(int add);
+        void learn(Engimon e);
 };
 
 #endif

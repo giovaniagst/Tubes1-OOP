@@ -1,5 +1,4 @@
 #include "Engimon.hpp"
-#include <iostream>
 
 using namespace std;
 
@@ -127,13 +126,11 @@ void Engimon::setParentSpecies(string species1, string species2) {
     parent_species[0] = species1;
     parent_species[1] = species2;
 }
-Skill* Engimon::getSkill() {
-    Skill* skill = new Skill[max_num_of_skills];
-    for (int i = 0; i < num_skill; i++) {
-        skill[i] = skills[i];
-    }
-    return skill;
+
+Skill Engimon::getSkill(int idx) {
+    return skills[idx];
 }
+
 void Engimon::setSkill(Skill skill, int idx) {
     skills[idx] = skill;
 }
@@ -188,6 +185,10 @@ void Engimon::setActive(bool active) {
     this->active = active;
 }
 
+int Engimon::getMaxNumOfSkill() {
+    return 4;
+}
+
 // other methods
 void Engimon::levelUp() {
     if (active) {
@@ -220,46 +221,4 @@ void Engimon::printInfo() {
 
 void Engimon::interact() {
     cout << "class engimon utama" << endl;   
-}
-
-void Engimon::learn(Skill* s) {
-    string* elmts = s->getElements();
-    bool found;
-    int i = 0;
-    int jmlSkill = 0;
-    while (!found || elmts[i] != "" || i < 5) {
-        for (int e = 0; e < 2; e++) {
-            if (elmts[i] == elements[e]) {
-                if (num_skill < max_num_of_skills) {
-                    skills[num_skill] = Skill(*s);
-                    num_skill++;
-                    jmlSkill = s->getJumlah();
-                    s->setJumlah(jmlSkill);
-                    cout << "Skill ditambahkan" << endl;
-                } else {
-                    // Skill penuh
-                    cout << "Slot skill sudah penuh. Apakah ingin replace skill? (y/n)" << endl;
-                    string replace;
-                    cin >> replace;
-                    if (replace == "y") {
-                        cout << "Pilih slot yang ingin diubah (1-4): ";
-                        int slot;
-                        cin >> slot;
-                        if (slot < 5 && slot > 0) {
-                            skills[slot-1] = Skill(*s);
-                            jmlSkill = s->getJumlah();
-                            s->setJumlah(jmlSkill);
-                            cout << "Skill ditambahkan" << endl;
-                        } else {
-                            cout << "Penambahan skill dibatalkan    " << endl;
-                        }
-                    } else { // replace == "n"
-                        cout << "Penambahan skill dibatalkan" << endl;
-                    }
-                }
-                found = true;
-            }
-        }
-        i++;
-    }
 }
