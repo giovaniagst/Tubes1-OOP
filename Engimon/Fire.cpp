@@ -4,8 +4,8 @@
 
 using namespace std;
 
-Fire::Fire(string name, string* parentname, string* parentspecies, int numskill) :
-Engimon(name, parentname, parentspecies, numskill) {
+Fire::Fire(string name, string species_name, string* parentname, string* parentspecies, int numskill) :
+Engimon(name, species_name, parentname, parentspecies, numskill) {
     elements[0] = "Fire";
     elements[1] = "";
 }

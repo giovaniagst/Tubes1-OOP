@@ -7,7 +7,7 @@
 // Engimon berelemen Fire dan Electric
 class FireElectric : public Engimon {
     public :
-        FireElectric(string name, string* parentname, string* parentspecies, int numskill);
+        FireElectric(string name, string species_name, string* parentname, string* parentspecies, int numskill);
         FireElectric(const FireElectric&);
         ~FireElectric();
         FireElectric& operator=(const FireElectric&);

@@ -7,7 +7,7 @@
 // Engimon berelemen Water dan Ground
 class WaterGround : public Engimon {
     public:
-        WaterGround(string name, string* parentname, string* parentspecies, int numskill);
+        WaterGround(string name, string species_name, string* parentname, string* parentspecies, int numskill);
         WaterGround(const WaterGround&);
         ~WaterGround();
         WaterGround& operator=(const WaterGround&);

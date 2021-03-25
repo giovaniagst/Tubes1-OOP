@@ -7,7 +7,7 @@
 // Engimon berelemen Water
 class Water : public Engimon {
     public:
-        Water(string name, string* parentname, string* parentspecies, int numskill);
+        Water(string name, string species_name, string* parentname, string* parentspecies, int numskill);
         Water(const Water&);
         ~Water();
         Water& operator=(const Water&);

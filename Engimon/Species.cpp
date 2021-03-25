@@ -6,7 +6,7 @@
 using namespace std;
 
 Charizard::Charizard(string name, string* parentname, string* parentspecies, int numskill) :
-Fire(name, parentname, parentspecies, numskill) {
+Fire(name, "Charizard", parentname, parentspecies, numskill) {
     skills[0] = SkillCharizard();
 }
 
@@ -24,7 +24,7 @@ void Charizard::interact() {
 }
 
 Glaceon::Glaceon(string name, string* parentname, string* parentspecies, int numskill) : 
-Ice(name, parentname, parentspecies, numskill) {
+Ice(name, "Glaceon", parentname, parentspecies, numskill) {
     skills[0] = SkillGlaceon();
 }
 
@@ -42,7 +42,7 @@ void Glaceon::interact() {
 }
 
 Onix::Onix(string name, string* parentname, string* parentspecies, int numskill) : 
-Ground(name, parentname, parentspecies, numskill) {
+Ground(name, "Onix", parentname, parentspecies, numskill) {
     skills[0] = SkillOnix();
 }
 
@@ -60,7 +60,7 @@ void Onix::interact() {
 }
 
 Pikachu::Pikachu(string name, string* parentname, string* parentspecies, int numskill) :
-Electric(name, parentname, parentspecies, numskill) {
+Electric(name, "Pikachu", parentname, parentspecies, numskill) {
     skills[0] = SkillPikachu();
 }
 
@@ -78,7 +78,7 @@ void Pikachu::interact() {
 }
 
 Squirtle::Squirtle(string name, string* parentname, string* parentspecies, int numskill) :
-Water(name, parentname, parentspecies, numskill) {
+Water(name, "Squirtle", parentname, parentspecies, numskill) {
     skills[0] = SkillSquirtle();
 }
 
@@ -96,7 +96,7 @@ void Squirtle::interact() {
 }
 
 Rotom::Rotom(string name, string* parentname, string* parentspecies, int numskill) :
-FireElectric(name, parentname, parentspecies, numskill) {
+FireElectric(name, "Rotom", parentname, parentspecies, numskill) {
     skills[0] = SkillRotom();
 }
 
@@ -115,7 +115,7 @@ void Rotom::interact() {
 
 
 Wooper::Wooper(string name, string* parentname, string* parentspecies, int numskill) :
-WaterGround(name, parentname, parentspecies, numskill) {
+WaterGround(name, "Wooper", parentname, parentspecies, numskill) {
     skills[0] = SkillWooper();
 }
 
@@ -133,7 +133,7 @@ void Wooper::interact() {
 }
 
 Cloyster::Cloyster(string name, string* parentname, string* parentspecies, int numskill) :
-WaterIce(name, parentname, parentspecies, numskill) {
+WaterIce(name, "Cloyster", parentname, parentspecies, numskill) {
     skills[0] = SkillCloyster();
 }
 

@@ -7,6 +7,7 @@ int Engimon::max_cum_experience = 10000;
 
 Engimon::Engimon() {
     name = "noname";
+    species_name = "noname";
     parent_name = new string[2];
     parent_species = new string[2];
     num_skill = 0;
@@ -18,12 +19,12 @@ Engimon::Engimon() {
     x = 0;
     y = 0;
     active = false;
-    
 }
 
-Engimon::Engimon(string name, string* parentname, string* parentspecies, int num_skill) {
+Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill) {
     name = name;
-    parent_name = new string[2];  // 2 dulu kalau mau bonus baru ditambah
+    species_name = species_name;
+    parent_name = new string[2]; // 2 dulu kalau mau bonus baru ditambah
     for (int i = 0; i < 2; i++) {
         parent_name[i] = parentname[i];
     }
@@ -44,6 +45,7 @@ Engimon::Engimon(string name, string* parentname, string* parentspecies, int num
 
 Engimon::Engimon(const Engimon& e) {
     name = e.name;
+    species_name = e.species_name;
     parent_name = new string[2];
     for (int i = 0; i < 2; i++) {
 		parent_name[i] = e.parent_name[i];
@@ -78,6 +80,7 @@ Engimon::~Engimon() {
 
 Engimon& Engimon::operator=(const Engimon& e) {
     name = e.name;
+    species_name = e.species_name;
     for (int i = 0; i < 2; i++) {
         parent_name[i] = e.parent_name[i];
     }
@@ -184,6 +187,14 @@ bool Engimon::getActive() {
 }
 void Engimon::setActive(bool active) {
     this->active = active;
+}
+
+string Engimon::getSpecies() {
+    return species_name;
+}
+
+void Engimon::setSpecies(string s) {
+    this->species_name = s;
 }
 
 int Engimon::getMaxNumOfSkill() {

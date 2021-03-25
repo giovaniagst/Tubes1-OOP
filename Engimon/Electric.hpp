@@ -7,7 +7,7 @@
 // Engimon berelemen Electric
 class Electric : public Engimon {
     public:
-        Electric(string name, string* parentname, string* parentspecies, int numskill);
+        Electric(string name, string species_name, string* parentname, string* parentspecies, int numskill);
         Electric(const Electric&);
         ~Electric();
         Electric& operator=(const Electric&);

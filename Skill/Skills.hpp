@@ -8,18 +8,19 @@ using namespace std;
 
 class SkillCharizard : public Skill {
     public:
-        SkillCharizard() : Skill(10) {
+        SkillCharizard() : Skill(10,"Skill Charizard") {
             elementSkill[0] = "Fire";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
             }
             bawaan = true;
+
         }
 };
 
 class SkillGlaceon : public Skill {
     public:
-        SkillGlaceon() : Skill(10) {
+        SkillGlaceon() : Skill(10, "Skill Glaceon") {
             elementSkill[0] = "Ice";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -30,7 +31,7 @@ class SkillGlaceon : public Skill {
 
 class SkillOnix : public Skill {
     public:
-        SkillOnix() : Skill(10) {
+        SkillOnix() : Skill(10, "Skill Onix") {
             elementSkill[0] = "Ground";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -41,7 +42,7 @@ class SkillOnix : public Skill {
 
 class SkillPikachu : public Skill {
     public:
-        SkillPikachu() : Skill(10) {
+        SkillPikachu() : Skill(10, "Skill Pikachu") {
             elementSkill[0] = "Electric";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -52,7 +53,7 @@ class SkillPikachu : public Skill {
 
 class SkillSquirtle : public Skill {
     public:
-        SkillSquirtle() : Skill(10) {
+        SkillSquirtle() : Skill(10, "Skill Squirtle") {
             elementSkill[0] = "Water";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -63,7 +64,7 @@ class SkillSquirtle : public Skill {
 
 class SkillRotom : public Skill {
     public:
-        SkillRotom() : Skill(10) {
+        SkillRotom() : Skill(10, "Skill Rotom") {
             elementSkill[0] = "Fire";
             elementSkill[1] = "Electric";
             for (int i = 2; i < 5; i++) {
@@ -75,7 +76,7 @@ class SkillRotom : public Skill {
 
 class SkillWooper : public Skill {
     public:
-        SkillWooper() : Skill(10) {
+        SkillWooper() : Skill(10, "Skill Wooper") {
             elementSkill[0] = "Water";
             elementSkill[1] = "Ground";
             for (int i = 2; i < 5; i++) {
@@ -87,7 +88,7 @@ class SkillWooper : public Skill {
 
 class SkillCloyster : public Skill {
     public:
-        SkillCloyster() : Skill(10) {
+        SkillCloyster() : Skill(10, "Skill Cloyster") {
             elementSkill[0] = "Water";
             elementSkill[1] = "Ice";
             for (int i = 2; i < 5; i++) {
@@ -101,7 +102,7 @@ class SkillCloyster : public Skill {
 
 class SkillFire : public Skill {
     public:
-        SkillFire() : Skill(10) {
+        SkillFire() : Skill(10, "Skill Fire") {
             elementSkill[0] = "Fire";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -111,7 +112,7 @@ class SkillFire : public Skill {
 
 class SkillWater : public Skill {
     public:
-        SkillWater() : Skill(10) {
+        SkillWater() : Skill(10, "Skill Water") {
             elementSkill[0] = "Water";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -121,7 +122,7 @@ class SkillWater : public Skill {
 
 class SkillGround : public Skill {
     public:
-        SkillGround() : Skill(10) {
+        SkillGround() : Skill(10, "Skill Ground") {
             elementSkill[0] = "Ground";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -131,7 +132,7 @@ class SkillGround : public Skill {
 
 class SkillElectric : public Skill {
     public:
-        SkillElectric() : Skill(10) {
+        SkillElectric() : Skill(10, "Skill Electric") {
             elementSkill[0] = "Electric";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -141,7 +142,7 @@ class SkillElectric : public Skill {
 
 class SkillIce : public Skill {
     public:
-        SkillIce() : Skill(10) {
+        SkillIce() : Skill(10, "Skill Ice") {
             elementSkill[0] = "Ice";
             for (int i = 1; i < 5; i++) {
                 elementSkill[i] = "";
@@ -153,7 +154,7 @@ class SkillIce : public Skill {
 
 class Nyetrum : public Skill {
     public:
-        Nyetrum() : Skill(10) {
+        Nyetrum() : Skill(10, "Nyetrum") {
             elementSkill[0] = "Water";
             elementSkill[1] = "Electric";
             for (int i = 2; i < 5; i++) {
@@ -164,7 +165,7 @@ class Nyetrum : public Skill {
 
 class Ngoding : public Skill {
     public:
-        Ngoding() : Skill(10) {
+        Ngoding() : Skill(10, "Ngoding") {
             elementSkill[0] = "Electric";
             elementSkill[1] = "Fire";
             elementSkill[2] = "Ice";
@@ -176,7 +177,7 @@ class Ngoding : public Skill {
 
 class Nyemprot : public Skill {
     public:
-        Nyemprot() : Skill(10) {
+        Nyemprot() : Skill(10, "Nyemprot") {
             elementSkill[0] = "Ground";
             elementSkill[1] = "Ice";
             elementSkill[2] = "Water";
@@ -188,7 +189,7 @@ class Nyemprot : public Skill {
 
 class Singing : public Skill {
     public:
-        Singing() : Skill(10) {
+        Singing() : Skill(10, "Singing") {
             elementSkill[0] = "Ground";
             elementSkill[1] = "Fire";
             for (int i = 2; i < 5; i++) {
@@ -199,7 +200,7 @@ class Singing : public Skill {
 
 class PublicSpeaking : public Skill {
     public:
-        PublicSpeaking() : Skill(10) {
+        PublicSpeaking() : Skill(10, "Public Speaking") {
             elementSkill[0] = "Water";
             elementSkill[1] = "Ground";
             elementSkill[2] = "Electric";

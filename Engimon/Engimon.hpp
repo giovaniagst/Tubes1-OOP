@@ -11,7 +11,7 @@ class Engimon {
   public:
     // ctor, cctor, dtor, operator
     Engimon();
-    Engimon(string name, string* parentname, string* parentspecies, int num_skill);
+    Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill);
     Engimon(const Engimon&);
     virtual ~Engimon();
     Engimon& operator=(const Engimon&);
@@ -41,6 +41,8 @@ class Engimon {
     void setCoordinate(int x, int y);
     bool getActive();
     void setActive(bool active);
+    string getSpecies();
+    void setSpecies(string);
 
     // other methods 
     void levelUp(); // cek di main
@@ -52,6 +54,7 @@ class Engimon {
     
   protected:
     string name;
+    string species_name;
     string* parent_name;
     string* parent_species;
     int num_skill;
