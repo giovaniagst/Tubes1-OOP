@@ -5,8 +5,8 @@
 using namespace std;
 
 Map::Map(){
-    this->absis = 5;
-    this->ordinat = 4;
+    this->absis = 6;
+    this->ordinat = 8;
     M = new char*[Height];
     for (int i=0; i<Height; i++){
         M[i] = new char[Width];
@@ -14,6 +14,7 @@ Map::Map(){
             M[i][j] = 'X';
         }
     }
+    //M[Width][Height] = 'X';
 }
 Map::~Map(){}
 void Map::ReadMatriks(FILE * file, char *c){
@@ -45,10 +46,235 @@ void Map::InitMap(){
     ReadMatriks(file, &c);
     fclose(file);
 }
+void Map::initEngimon(Engimon engimon){
+    int posX = engimon.getX();
+    int posY = engimon.getY();
+    if (engimon.getActive()){
+        M[posY][posX] = 'X';
+    }
+    else {
+        if (engimon.getLevel() < minLV){
+            if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ice"){
+                M[posY][posX] = 's';
+            }
+            else if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ground"){
+                M[posY][posX] = 'n';
+            }
+            else if (engimon.getElements()[0] == "Fire" && engimon.getElements()[1] == "Electric"){
+                M[posY][posX] = 'l';
+            }
+            else if (engimon.getElements()[0] == "Electric"){
+                M[posY][posX] = 'e';
+            }
+            else if (engimon.getElements()[0] == "Ground"){
+                M[posY][posX] = 'g';
+            }
+            else if (engimon.getElements()[0] == "Fire"){
+                M[posY][posX] = 'f';
+            }
+            else if (engimon.getElements()[0] == "Ice"){
+                M[posY][posX] = 'i';
+            }
+            else if (engimon.getElements()[0] == "Water"){
+                M[posY][posX] = 'w';
+            }
+        }
+        else if(engimon.getLevel() >= minLV){
+            if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ice"){
+                M[posY][posX] = 'S';
+            }
+            else if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ground"){
+                M[posY][posX] = 'N';
+            }
+            else if (engimon.getElements()[0] == "Fire" && engimon.getElements()[1] == "Electric"){
+                M[posY][posX] = 'L';
+            }
+            else if (engimon.getElements()[0] == "Electric"){
+                M[posY][posX] = 'E';
+            }
+            else if (engimon.getElements()[0] == "Ground"){
+                M[posY][posX] = 'G';
+            }
+            else if (engimon.getElements()[0] == "Fire"){
+                M[posY][posX] = 'F';
+            }
+            else if (engimon.getElements()[0] == "Ice"){
+                M[posY][posX] = 'I';
+            }
+            else if (engimon.getElements()[0] == "Water"){
+                M[posY][posX] = 'W';
+            }
+        }
+    }
+}
+int Map::randomMove(){
+    return rand()%(5-1)+1;
+}
+int Map::random2ndMove(){
+    return rand()%(4-1)+1;
+}
+void Map::engimonMove(Engimon engimon){
+    int random = randomMove();
+    if (random == 1){ //ke kanan
+        int posX = engimon.getX()+1;
+        int posY = engimon.getY();
+        if (isBorderEngimon(posX, posY)){
+            engimonMove(engimon);
+        }
+        else{
+            engimon.setX(posX);
+            M[posY][posX] = getSymbolEngimon(engimon);
+            if (posX-1 > 6 && posY< 7){
+                M[posY][posX-1] = '~';
+            }
+            else{
+                M[posY][posX-1] = '-';
+            }
+        }
+    }
+    else if (random == 2){ // ke kiri
+        int posX = engimon.getX()-1;
+        int posY = engimon.getY();
+        if (isBorderEngimon(posX, posY)){
+            engimonMove(engimon);
+        }
+        else{
+            engimon.setX(posX);
+            M[posY][posX] = getSymbolEngimon(engimon);
+            if (posX+1 > 6 && posY< 7){
+                M[posY][posX+1] = '~';
+            }
+            else{
+                M[posY][posX+1] = '-';
+            }
+        }
+
+    }
+    else if (random == 3){ // ke bawah
+        int posX = engimon.getX();
+        int posY = engimon.getY()+1;
+        if (isBorderEngimon(posX, posY)){
+            engimonMove(engimon);
+        }
+        else{
+            engimon.setY(posY);
+            M[posY][engimon.getX()] = getSymbolEngimon(engimon);
+            if (posX > 6 && posY-1< 7){
+                M[posY-1][posX] = '~';
+            }
+            else{
+                M[posY-1][posX] = '-';
+            }
+        }
+
+    }
+    else if (random == 4){ // ke atas
+        int posX = engimon.getX();
+        int posY = engimon.getY()- 1;
+        if (isBorderEngimon(posX, posY)){
+            engimonMove(engimon);
+        }
+        else{
+            engimon.setY(posY);
+            M[posY][posX] = getSymbolEngimon(engimon);
+            if (posX > 6 && posY+1< 7){
+                M[posY+1][posX] = '~';
+            }
+            else{
+                M[posY+1][posX] = '-';
+            }
+        }
+
+    }
+}
+
+void Map::engimonUp(Engimon engimon){
+    int posX = engimon.getX();
+    int posY = engimon.getY()-1;
+
+    cout << engimon.getX()<<engimon.getY() << endl;
+    engimon.setY(posY);
+    //engimon.setY(posY);
+    if (isBorderEngimon(engimon.getX(), engimon.getY()-1)){
+        //posY = posY - 1;
+    }
+    else{
+
+        M[engimon.getY()][engimon.getX()] = getSymbolEngimon(engimon);
+        cout << engimon.getX()<< engimon.getY()<< endl;
+        if (engimon.getX() > 6 && engimon.getY()+1< 7){
+            M[engimon.getY()+1][engimon.getX()] = '~';
+        }
+        else{
+            M[engimon.getY()+1][engimon.getX()] = '-';
+        }
+    }
+
+}
+char Map::getSymbolEngimon(Engimon engimon){
+    char ch;
+    if (engimon.getLevel() < minLV){
+        if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ice"){
+            ch = 's';
+        }
+        else if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ground"){
+            ch = 'n';
+        }
+        else if (engimon.getElements()[0] == "Fire" && engimon.getElements()[1] == "Electric"){
+            ch = 'l';
+        }
+        else if (engimon.getElements()[0] == "Electric"){
+            ch = 'e';
+        }
+        else if (engimon.getElements()[0] == "Ground"){
+            ch = 'g';
+        }
+        else if (engimon.getElements()[0] == "Fire"){
+            ch = 'f';
+        }
+        else if (engimon.getElements()[0] == "Ice"){
+            ch = 'i';
+        }
+        else if (engimon.getElements()[0] == "Water"){
+            ch = 'w';
+        }
+    }
+    else{
+        if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ice"){
+            ch = 'S';
+        }
+        else if (engimon.getElements()[0] == "Water" && engimon.getElements()[1] == "Ground"){
+            ch = 'N';
+        }
+        else if (engimon.getElements()[0] == "Fire" && engimon.getElements()[1] == "Electric"){
+            ch = 'L';
+        }
+        else if (engimon.getElements()[0] == "Electric"){
+            ch = 'E';
+        }
+        else if (engimon.getElements()[0] == "Ground"){
+            ch = 'G';
+        }
+        else if (engimon.getElements()[0] == "Fire"){
+            ch = 'F';
+        }
+        else if (engimon.getElements()[0] == "Ice"){
+            ch = 'I';
+        }
+        else if (engimon.getElements()[0] == "Water"){
+            ch = 'W';
+        }
+    }
+    return ch;
+}
 bool Map::isBorder(){
     return (Map::absis == 0 || Map::absis == Width - 1 || Map::ordinat == 0 || Map::ordinat == Height - 1);
 }
+bool Map::isBorderEngimon(int posX, int posY){
+    return (posX == 0 || posX == Width-1 || posY == 0 || posY == Height-1);
+}
 void Map::Up(){
+
     this->ordinat = this->ordinat - 1;
     if (isBorder()){
         printf("Kamu menabrak tembok\n");
@@ -62,7 +288,7 @@ void Map::Up(){
         else{
             M[this->ordinat+1][this->absis] = '-';
         }
-        TulisMatriks();
+       // TulisMatriks();
     }
 }
 void Map::Down(){
@@ -79,7 +305,7 @@ void Map::Down(){
         else{
             M[this->ordinat-1][this->absis] = '-';
         }
-        TulisMatriks();
+       // TulisMatriks();
     }
 }
 void Map::Left(){
@@ -96,7 +322,7 @@ void Map::Left(){
         else{
             M[this->ordinat][this->absis+1] = '-';
         }
-        TulisMatriks();
+       // TulisMatriks();
     }
 }
 void Map::Right(){
@@ -113,6 +339,6 @@ void Map::Right(){
         else{
             M[this->ordinat][this->absis-1] = '-';
         }
-        TulisMatriks();
+       // TulisMatriks();
     }
 }
