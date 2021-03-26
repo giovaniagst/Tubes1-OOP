@@ -1,6 +1,7 @@
 #include "Map.hpp"
 #include <iostream>
 #include <cstdio>
+#include <fstream>
 
 using namespace std;
 
@@ -18,6 +19,15 @@ Map::Map(){
 }
 Map::~Map(){}
 void Map::ReadMatriks(FILE * file, char *c){
+//ifstream file;
+//file.open("Map.txt", "r");
+//
+//for (int i = 0; i < Height; i++) {
+//    for (int j = 0; j < Width; j++) {
+//        file >> M[i][j];
+//    }
+//}
+//file.close();
     for (int i=0; i<Height; i++){
         for (int j=0; j<Width; j++){
             *c = (char)fgetc(file);
@@ -113,11 +123,11 @@ int Map::randomMove(){
 int Map::random2ndMove(){
     return rand()%(4-1)+1;
 }
-void Map::engimonMove(Engimon engimon){
+void Map::engimonMove(Engimon *engimon){
     int random = randomMove();
     if (random == 1){ //ke kanan
-        int posX = engimon.getX()+1;
-        int posY = engimon.getY();
+        int posX = engimon->getX()+1;
+        int posY = engimon->getY();
         if (isBorderEngimon(posX, posY)){
             engimonMove(engimon);
         }
@@ -126,8 +136,8 @@ void Map::engimonMove(Engimon engimon){
                 engimonMove(engimon);
             }
             else{
-                engimon.setX(posX);
-                M[posY][posX] = getSymbolEngimon(engimon);
+                engimon->setX(posX);
+                M[posY][posX] = getSymbolEngimon(*engimon);
                 if (posX-1 > 6 && posY< 7){
                     M[posY][posX-1] = '~';
                 }
@@ -139,8 +149,8 @@ void Map::engimonMove(Engimon engimon){
         }
     }
     else if (random == 2){ // ke kiri
-        int posX = engimon.getX()-1;
-        int posY = engimon.getY();
+        int posX = engimon->getX()-1;
+        int posY = engimon->getY();
         if (isBorderEngimon(posX, posY)){
             engimonMove(engimon);
         }
@@ -149,8 +159,8 @@ void Map::engimonMove(Engimon engimon){
                 engimonMove(engimon);
             }
             else{
-                engimon.setX(posX);
-                M[posY][posX] = getSymbolEngimon(engimon);
+                engimon->setX(posX);
+                M[posY][posX] = getSymbolEngimon(*engimon);
                 if (posX+1 > 6 && posY< 7){
                     M[posY][posX+1] = '~';
                 }
@@ -162,8 +172,8 @@ void Map::engimonMove(Engimon engimon){
         }
     }
     else if (random == 3){ // ke bawah
-        int posX = engimon.getX();
-        int posY = engimon.getY()+1;
+        int posX = engimon->getX();
+        int posY = engimon->getY()+1;
         if (isBorderEngimon(posX, posY)){
             engimonMove(engimon);
         }
@@ -172,8 +182,8 @@ void Map::engimonMove(Engimon engimon){
                 engimonMove(engimon);
             }
             else{
-                engimon.setY(posY);
-                M[posY][posX] = getSymbolEngimon(engimon);
+                engimon->setY(posY);
+                M[posY][posX] = getSymbolEngimon(*engimon);
                 if (posX > 6 && posY-1< 7){
                     M[posY-1][posX] = '~';
                 }
@@ -186,8 +196,8 @@ void Map::engimonMove(Engimon engimon){
 
     }
     else if (random == 4){ // ke atas
-        int posX = engimon.getX();
-        int posY = engimon.getY()- 1;
+        int posX = engimon->getX();
+        int posY = engimon->getY()- 1;
         if (isBorderEngimon(posX, posY)){
             engimonMove(engimon);
         }
@@ -196,8 +206,8 @@ void Map::engimonMove(Engimon engimon){
                 engimonMove(engimon);
             }
             else{
-                engimon.setY(posY);
-                M[posY][posX] = getSymbolEngimon(engimon);
+                engimon->setY(posY);
+                M[posY][posX] = getSymbolEngimon(*engimon);
                 if (posX > 6 && posY+1< 7){
                     M[posY+1][posX] = '~';
                 }
@@ -210,25 +220,25 @@ void Map::engimonMove(Engimon engimon){
 
     }
 }
-void Map::engimonUp(Engimon engimon){
-    int posX = engimon.getX();
-    int posY = engimon.getY()-1;
+void Map::engimonUp(Engimon *engimon){
+    int posX = engimon->getX();
+    int posY = engimon->getY()-1;
 
-    cout << engimon.getX()<<engimon.getY() << endl;
-    engimon.setY(posY);
+    cout << engimon->getX()<<engimon->getY() << endl;
+    engimon->setY(posY);
     //engimon.setY(posY);
-    if (isBorderEngimon(engimon.getX(), engimon.getY()-1)){
+    if (isBorderEngimon(engimon->getX(), engimon->getY()-1)){
         //posY = posY - 1;
     }
     else{
 
-        M[posY][posX] = getSymbolEngimon(engimon);
-        cout << engimon.getX()<< engimon.getY()<< endl;
-        if (engimon.getX() > 6 && engimon.getY()+1< 7){
-            M[engimon.getY()+1][engimon.getX()] = '~';
+        M[posY][posX] = getSymbolEngimon(*engimon);
+        cout << engimon->getX()<< engimon->getY()<< endl;
+        if (engimon->getX() > 6 && engimon->getY()+1< 7){
+            M[engimon->getY()+1][engimon->getX()] = '~';
         }
         else{
-            M[engimon.getY()+1][engimon.getX()] = '-';
+            M[engimon->getY()+1][engimon->getX()] = '-';
         }
     }
 

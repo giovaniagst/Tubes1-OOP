@@ -29,14 +29,14 @@ class Map{
         void initEngimon(Engimon engimon);
         int randomMove();
         int random2ndMove();
-        void engimonMove(Engimon);
+        void engimonMove(Engimon*);
         char getSymbolEngimon(Engimon engimon);
         bool isBorder();
         bool isBorderEngimon(int x, int y);
         bool isGroundYBorder(int x, int y);
         bool isGroundXBorder(int x, int y);
         bool isNearEngimon();
-        void engimonUp(Engimon engimon);
+        void engimonUp(Engimon *engimon);
         void Up();
         void Down();
         void Left();
