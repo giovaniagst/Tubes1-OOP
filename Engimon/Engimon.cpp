@@ -178,9 +178,11 @@ int Engimon::getX() {
 int Engimon::getY() {
     return y;
 }
-void Engimon::setCoordinate(int x, int y) {
-    this->x = x;
-    this->y = y;
+void Engimon::setX(int X){
+    x = X;
+}
+void Engimon::setY(int Y){
+    y = Y;
 }
 bool Engimon::getActive() {
     return active;
