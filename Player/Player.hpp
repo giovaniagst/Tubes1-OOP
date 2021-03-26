@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include <string>
-#include "../Engimon/Engimon.hpp"
+#include "../Engimon/Species.hpp"
 #include "../Map/Map.hpp"
+#include "../Skill/SkillItem.hpp"
 #include "../Inventory/Inventory.hpp"
-#include<array> // for array, at()
+#include<vector> // for array, at()
 #include<tuple> // for get()
 using namespace std;
 
@@ -26,7 +27,7 @@ class Player {
     
     // getter & se-tter
     string getName();
-    Engimon* getlistEngimon();
+    Inventory<Engimon> getlistEngimon();
     int getJumlahEngimon();
     Engimon getActiveEngimon();
 
@@ -35,17 +36,17 @@ class Player {
     void battle(Engimon lawan);
     void printlistEngimon();
     void printActiveEngimon();
-    void changeActiveEngimon(string Engimon);
+    void changeActiveEngimon(int pos);
     void doBreeding(string Engimon1, string Engimon2);
-    void skill();
+    // void skill();
    
     // void battle();
     // Inventory<typename,int> getInventory();
 
   private:
     string nama;
-     engimonKepemilikan;
-    array<Skillitem,100> Skillitem;
+    Inventory<Engimon> engimonKepemilikan;
+    Inventory<SkillItem> SkillItem;
     int jumlahEngimonKepemilikan;
     Engimon activeEngimon;
     // Inventory<typename T, int x>;

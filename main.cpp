@@ -26,10 +26,13 @@ int main()
     string* parentspecies = new string[2];
     parentspecies[0] = "Charizard";
     parentspecies[1] = "Wooper";
-    Wooper W("nama", parentname, parentspecies, 1);
+    Wooper W("nama", parentname, parentspecies, 1, 0, 1);
     string* elemen = W.getElements();
     cout << elemen[0] << endl;
     cout << elemen[1] << endl;
+    cout << W.getName() << endl;
+    W.printInfo();
+    cout << "Test" << endl;
     // while (true){
         
     //     system ("clear");

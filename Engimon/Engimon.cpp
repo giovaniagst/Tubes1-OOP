@@ -6,69 +6,69 @@ int Engimon::max_num_of_skills = 4;
 int Engimon::max_cum_experience = 10000;
 
 Engimon::Engimon() {
-    name = "noname";
-    species_name = "noname";
-    parent_name = new string[2];
-    parent_species = new string[2];
-    num_skill = 0;
-    skills = new Skill[max_num_of_skills];
-    elements = new string[2];
-    level = 0;
-    experience = 0;
-    cumulative_experience = 0;
-    x = 0;
-    y = 0;
-    active = false;
+    this->name = "noname";
+    this->species_name = "noname";
+    this->parent_name = new string[2];
+    this->parent_species = new string[2];
+    this->num_skill = 0;
+    this->skills = new Skill[max_num_of_skills];
+    this->elements = new string[2];
+    this->level = 0;
+    this->experience = 0;
+    this->cumulative_experience = 0;
+    this->x = 0;
+    this->y = 0;
+    this->active = false;
 }
 
 Engimon::Engimon(string name, string species_name, string* parentname, string* parentspecies, int num_skill, int X, int Y) {
-    name = name;
-    species_name = species_name;
-    parent_name = new string[2]; // 2 dulu kalau mau bonus baru ditambah
+    this->name = name;
+    this->species_name = species_name;
+    this->parent_name = new string[2]; // 2 dulu kalau mau bonus baru ditambah
     for (int i = 0; i < 2; i++) {
-        parent_name[i] = parentname[i];
+        this->parent_name[i] = parentname[i];
     }
-    parent_species = new string[2];
+    this->parent_species = new string[2];
     for (int i = 0; i < 2; i++) {
-        parent_species[i] = parentspecies[i];
+        this->parent_species[i] = parentspecies[i];
     }
-    num_skill = num_skill;
-    skills = new Skill[max_num_of_skills];
-    elements = new string[2];
-    level = 0;
-    experience = 0;
-    cumulative_experience = 0;
-    x = X;
-    y = Y;
-    active = false;
+    this->num_skill = num_skill;
+    this->skills = new Skill[max_num_of_skills];
+    this->elements = new string[2];
+    this->level = 0;
+    this->experience = 0;
+    this->cumulative_experience = 0;
+    this->x = X;
+    this->y = Y;
+    this->active = false;
 }
 
 Engimon::Engimon(const Engimon& e) {
-    name = e.name;
-    species_name = e.species_name;
-    parent_name = new string[2];
+    this->name = e.name;
+    this->species_name = e.species_name;
+    this->parent_name = new string[2];
     for (int i = 0; i < 2; i++) {
-		parent_name[i] = e.parent_name[i];
+		this->parent_name[i] = e.parent_name[i];
 	}
-    parent_species = new string[2];
+    this->parent_species = new string[2];
     for (int i = 0; i < 2; i++) {
-        parent_species[i] = e.parent_species[i];
+        this->parent_species[i] = e.parent_species[i];
     }
-    num_skill = e.num_skill;
-    skills = new Skill[max_num_of_skills];
+    this->num_skill = e.num_skill;
+    this->skills = new Skill[max_num_of_skills];
     for (int i = 0; i < num_skill; i++) {
-        skills[i] = e.skills[i];
+        this->skills[i] = e.skills[i];
     }
-    elements = new string[2];
+    this->elements = new string[2];
     for (int i = 0; i < 2; i++) {
-        elements[i] = e.elements[i];
+        this->elements[i] = e.elements[i];
     }
-    level = e.level;
-    experience = e.experience;
-    cumulative_experience = e.cumulative_experience;
-    x = e.x;
-    y = e.y;
-    active = e.active;
+    this->level = e.level;
+    this->experience = e.experience;
+    this->cumulative_experience = e.cumulative_experience;
+    this->x = e.x;
+    this->y = e.y;
+    this->active = e.active;
 }
 
 Engimon::~Engimon() {
@@ -79,31 +79,31 @@ Engimon::~Engimon() {
 }
 
 Engimon& Engimon::operator=(const Engimon& e) {
-    name = e.name;
-    species_name = e.species_name;
+    this->name = e.name;
+    this->species_name = e.species_name;
     for (int i = 0; i < 2; i++) {
-        parent_name[i] = e.parent_name[i];
+        this->parent_name[i] = e.parent_name[i];
     }
     for (int i = 0; i < 2; i++) {
-        parent_species[i] = e.parent_species[i];
+        this->parent_species[i] = e.parent_species[i];
     }
-    num_skill = e.num_skill;
+    this->num_skill = e.num_skill;
     for (int i = 0; i < num_skill; i++) {
-        skills[i] = e.skills[i];
+        this->skills[i] = e.skills[i];
     }
     for (int i = 0; i < 2; i++) {
-        elements[i] = e.elements[i];
+        this->elements[i] = e.elements[i];
     }
-    level = e.level;
-    experience = e.experience;
-    cumulative_experience = e.cumulative_experience;
+    this->level = e.level;
+    this->experience = e.experience;
+    this->cumulative_experience = e.cumulative_experience;
 
     return *this;
 }
 
 // getter & setter
 string Engimon::getName() {
-    return name;
+    return this->name;
 }
 void Engimon::setName(string name) {
     this->name = name;
@@ -116,8 +116,8 @@ string* Engimon::getParentName() {
     return parentName;
 }
 void Engimon::setParentName(string parent1, string parent2) {
-    parent_name[0] = parent1;
-    parent_name[1] = parent2;
+    this->parent_name[0] = parent1;
+    this->parent_name[1] = parent2;
 }
 string* Engimon::getParentSpecies() {
     string* parentSpecies = new string[2];
@@ -127,72 +127,72 @@ string* Engimon::getParentSpecies() {
     return parentSpecies;
 }
 void Engimon::setParentSpecies(string species1, string species2) {
-    parent_species[0] = species1;
-    parent_species[1] = species2;
+    this->parent_species[0] = species1;
+    this->parent_species[1] = species2;
 }
 
 Skill Engimon::getSkill(int idx) {
-    return skills[idx];
+    return this->skills[idx];
 }
 
 void Engimon::setSkill(Skill skill, int idx) {
-    skills[idx] = skill;
+    this->skills[idx] = skill;
 }
 string* Engimon::getElements() {
     string* hasil = new string[2];
     for (int i = 0; i < 2; i++) {
-        hasil[i] = elements[i];
+        hasil[i] = this->elements[i];
     }
     return hasil;
 }
 void Engimon::setElements(string element, int i) {
-    elements[i] = element;
+    this->elements[i] = element;
 }
 int Engimon::getLevel() {
-    return level;
+    return this->level;
 }
 void Engimon::setLevel(int level) {
-    level = level;
+    this->level = level;
 }
 int Engimon::getExperience() {
-    return experience;
+    return this->experience;
 }
 void Engimon::setExperience(int experience) {
-    experience = experience;
+    this->experience = experience;
 }
 int Engimon::getCumulativeExperience() {
-    return cumulative_experience;
+    return this->cumulative_experience;
 }
 void Engimon::setCumulativeExperience(int cumulative_experience) {
-    cumulative_experience = cumulative_experience;
+    this->cumulative_experience = cumulative_experience;
 }
 int Engimon::getNumSkill() {
-    return num_skill;
+    return this->num_skill;
 }
 void Engimon::setNumSkill(int num) {
-    num_skill = num;
+    this->num_skill = num;
 }
 int Engimon::getX() {
-    return x;
+    return this->x;
 }
 int Engimon::getY() {
-    return y;
+    return this->y;
 }
 void Engimon::setX(int X){
-    x = X;
+    this->x = X;
 }
 void Engimon::setY(int Y){
-    y = Y;
+    this->y = Y;
 }
 bool Engimon::getActive() {
-    return active;
+    return this->active;
 }
 void Engimon::setActive(bool active) {
     this->active = active;
 }
 
 string Engimon::getSpecies() {
-    return species_name;
+    return this->species_name;
 }
 
 void Engimon::setSpecies(string s) {
@@ -205,10 +205,10 @@ int Engimon::getMaxNumOfSkill() {
 
 // other methods
 void Engimon::levelUp() {
-    if (active) {
-        if (experience % 10 >= 1) {
-            level += 1;
-            experience -= (experience % 10) * 10;
+    if (this->active) {
+        if (this->experience % 10 >= 1) {
+            this->level += 1;
+            this->experience -= (this->experience % 10) * 10;
         }
     }
 }
@@ -218,9 +218,9 @@ void Engimon::printInfo() {
     cout << "Parent Name : " << parent_name[0] << ", " << parent_name[1] << endl;
     cout << "Parent Species : " << parent_species[0] << ", " << parent_species[1] << endl;
     cout << "Skills:" << endl;
-    // for (int i = 0; i < num_skill; i++) {
-    //     cout << " " << i << ". " << skills[i] << endl; // nunggu class skill dulu ya huhu
-    // }
+    for (int i = 0; i < num_skill; i++) {
+        cout << " " << i+1 << ". " << skills[i].getNamaSkill() << endl; // nunggu class skill dulu ya huhu
+    }
     cout << "Element";
     // if (strcmp(elements[1], "") != 0) {
     if (elements[1]==""){
@@ -235,4 +235,21 @@ void Engimon::printInfo() {
 
 void Engimon::interact() {
     cout << "class engimon utama" << endl;
+}
+
+bool Engimon::operator==(const Engimon& e) {
+    return(
+        (this->name == e.name )&&
+        (this->species_name == e.species_name)&&
+        (this->parent_name[0] == e.parent_name[0])&& 
+        (this->parent_name[1] == e.parent_name[1])&& 
+        (this->parent_species[0] == e.parent_species[0]) &&
+        (this->parent_species[1] == e.parent_species[1]) &&
+        (this->num_skill == e.num_skill) &&
+        (this->elements[0] == e.elements[0]) &&
+        (this->elements[1] == e.elements[1]) &&
+        (this->level == e.level) &&
+        (this->experience == e.experience) &&
+        (this->cumulative_experience == e.cumulative_experience)
+    );
 }

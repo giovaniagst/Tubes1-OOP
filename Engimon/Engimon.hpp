@@ -15,6 +15,7 @@ class Engimon {
     Engimon(const Engimon&);
     virtual ~Engimon();
     Engimon& operator=(const Engimon&);
+    bool operator==(const Engimon&);
 
     // getter & setter
     string getName();

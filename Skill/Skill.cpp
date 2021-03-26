@@ -2,7 +2,7 @@
 
 Skill::Skill() {
     this->base_power = 0;
-    this->mastery_level = 1;
+    this->mastery_level = 0;
     this->bawaan = false;
     this->namaSkill = "noname";
     this->elementSkill = new string[5]; // karena ada 5 elemen jadi kapasitas selalu 5
