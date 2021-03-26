@@ -89,21 +89,21 @@ void init(Map M){
 int main()
 {
 
-    string nama;
-    string command;
-    cout << "Selamat Datang di Game" << endl;
-    cout << "Masukkan nama anda :" << endl;
-    cin >> nama;
-    cout << "halo " << nama << "!!" << endl;
-    // Player P(nama);
-    // cout << "press any key to countinue!!";
-    string* parentname = new string[2];
-    parentname[0] = "yeay";
-    parentname[1] = "oke";
-    string* parentspecies = new string[2];
-    parentspecies[0] = "Charizard";
-    parentspecies[1] = "Wooper";
-    // while (true){
+//    string nama;
+//    string command;
+//    cout << "Selamat Datang di Game" << endl;
+//    cout << "Masukkan nama anda :" << endl;
+//    cin >> nama;
+//    cout << "halo " << nama << "!!" << endl;
+//    // Player P(nama);
+//    // cout << "press any key to countinue!!";
+//    string* parentname = new string[2];
+//    parentname[0] = "yeay";
+//    parentname[1] = "oke";
+//    string* parentspecies = new string[2];
+//    parentspecies[0] = "Charizard";
+//    parentspecies[1] = "Wooper";
+//    // while (true){
 
     Map M;
     M.InitMap();
