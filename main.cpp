@@ -5,28 +5,7 @@
 using namespace std;
 
 
-bool compareString(string x, string y){
-    int res = x.compare(y);
-    bool cek = false;
-    if (res == 0){
-        cek = true;
-    }
-    return cek;
-}
-bool isInWater(string* str){
-    for (int i=0; i<2; i++){
-        if (compareString("Water", str[i]) || compareString("Ice", str[i])){
-            return true;
-        }
-    }
-    return false;
-}
-bool isInGroundWater(string* str){
-    if (compareString("Water", str[0]) && compareString("Ground", str[1])){
-        return true;
-    }
-    return false;
-}
+
 int randomAllX(){
 
     return rand()% (13-1)+1;
@@ -83,11 +62,11 @@ void init(Map M){
     Rotom rotom("tes",nama1, nama2, numSkill, randomGroundKuadran4X(), randomGroundKuadran4Y());
     Wooper wooper("tes",nama1, nama2, numSkill, randomAllX(), randomAllY());
     Cloyster cloyster("tes",nama1, nama2, numSkill, randomWaterX(), randomWaterY());
-
 }
 
 int main()
 {
+    //cout << 2+-1<< endl;
 
 //    string nama;
 //    string command;
@@ -104,7 +83,7 @@ int main()
 //    parentspecies[0] = "Charizard";
 //    parentspecies[1] = "Wooper";
 //    // while (true){
-
+//
     Map M;
     M.InitMap();
 
@@ -112,6 +91,7 @@ int main()
     string *nama1 = new string[2];
     string *nama2 = new string[2];
     int numSkill = 3;
+
     nama1[0] = "bambang";
     nama1[1] = "jono";
     Charizard *chrzrd = new Charizard("tes",nama1, nama2, numSkill, randomGroundKuadran1(), randomGroundKuadran1());
@@ -142,6 +122,7 @@ int main()
     M.initEngimon(wooper);
     M.initEngimon(cloyster);
 
+
     int turn = 1;
     while (turn>0){
         cout << "============== round " << turn-1 << " =============" << endl;
@@ -153,23 +134,23 @@ int main()
         getchar();
 
         if ((turn % 3) == 0){
-            M.engimonMove(charizard);
-            M.engimonMove(glaceon);
-            M.engimonMove(onix);
-            M.engimonMove(pikachu);
-            M.engimonMove(squirtle);
-            M.engimonMove(rotom);
-            M.engimonMove(wooper);
-            M.engimonMove(cloyster);
+            M.engimonMove(&charizard);
+            M.engimonMove(&glaceon);
+            M.engimonMove(&onix);
+            M.engimonMove(&pikachu);
+            M.engimonMove(&squirtle);
+            M.engimonMove(&rotom);
+            M.engimonMove(&wooper);
+            M.engimonMove(&cloyster);
 
-//            M.engimonUp(charizard);
-//            M.engimonUp(glaceon);
-//            M.engimonUp(onix);
-//            M.engimonUp(pikachu);
-//            M.engimonUp(squirtle);
-//            M.engimonUp(rotom);
-//            M.engimonUp(wooper);
-//            M.engimonUp(cloyster);
+//            M.engimonUp(&charizard);
+//            M.engimonUp(&glaceon);
+//            M.engimonUp(&onix);
+//            M.engimonUp(&pikachu);
+//            M.engimonUp(&squirtle);
+//            M.engimonUp(&rotom);
+//            M.engimonUp(&wooper);
+//            M.engimonUp(&cloyster);
         }
 //        for (int i=0; i<10; i++){
 //            cout << M.randomMove() << endl;
