@@ -88,58 +88,6 @@ void init(Map M){
 
 int main()
 {
-<<<<<<< HEAD
-    system ("clear");
-    // char C;
-    // Map M;
-    // M.InitMap();    
-    string nama;
-    string command;
-    cout << "Selamat Datang di Game" << endl;
-    cout << "Masukkan nama anda :" << endl;
-    cin >> nama;
-    cout << "halo " << nama << "!!" << endl;
-    // Player P(nama);
-    // cout << "press any key to countinue!!";
-    string* parentname = new string[2];
-    parentname[0] = "yeay";
-    parentname[1] = "oke";
-    string* parentspecies = new string[2];
-    parentspecies[0] = "Charizard";
-    parentspecies[1] = "Wooper";
-    Wooper W("nama", parentname, parentspecies, 1, 0, 1);
-    string* elemen = W.getElements();
-    cout << elemen[0] << endl;
-    cout << elemen[1] << endl;
-    cout << W.getName() << endl;
-    W.printInfo();
-    cout << "Test" << endl;
-    // while (true){
-        
-    //     system ("clear");
-    //     M.TulisMatriks();
-    //     // printf("\nMasukkan command : ");
-    //     // C = getchar();
-    //     // getchar();
-    //     // if (C == 'w'){
-    //     //     M.Up();
-    //     // }
-    //     // else if (C == 's'){
-    //     //     M.Down();
-    //     // }
-    //     // else if (C == 'a'){
-    //     //     M.Left();
-    //     // }
-    //     // else if (C == 'd'){
-    //     //     M.Right();
-    //     // }
-    //     // cin >> command;
-    //     // if ((command == "up") || (command == "down") || (command == "left") || (command == "right")) {
-    //     //     P.move(&M,command);
-    //     // } 
-        
-    // }
-=======
 
 //    string nama;
 //    string command;
@@ -240,7 +188,6 @@ int main()
         }
         turn++;
     }
->>>>>>> 26ddd8bf10ca090746916459804f5af7705f6d49
 
     return 0;
 }
