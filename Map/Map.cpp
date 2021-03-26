@@ -122,14 +122,20 @@ void Map::engimonMove(Engimon engimon){
             engimonMove(engimon);
         }
         else{
-            engimon.setX(posX);
-            M[posY][posX] = getSymbolEngimon(engimon);
-            if (posX-1 > 6 && posY< 7){
-                M[posY][posX-1] = '~';
+            if(isGroundYBorder(posX, posY)){
+                engimonMove(engimon);
             }
             else{
-                M[posY][posX-1] = '-';
+                engimon.setX(posX);
+                M[posY][posX] = getSymbolEngimon(engimon);
+                if (posX-1 > 6 && posY< 7){
+                    M[posY][posX-1] = '~';
+                }
+                else{
+                    M[posY][posX-1] = '-';
+                }
             }
+
         }
     }
     else if (random == 2){ // ke kiri
@@ -139,16 +145,21 @@ void Map::engimonMove(Engimon engimon){
             engimonMove(engimon);
         }
         else{
-            engimon.setX(posX);
-            M[posY][posX] = getSymbolEngimon(engimon);
-            if (posX+1 > 6 && posY< 7){
-                M[posY][posX+1] = '~';
+            if (isGroundYBorder(posX+1, posY)){
+                engimonMove(engimon);
             }
             else{
-                M[posY][posX+1] = '-';
+                engimon.setX(posX);
+                M[posY][posX] = getSymbolEngimon(engimon);
+                if (posX+1 > 6 && posY< 7){
+                    M[posY][posX+1] = '~';
+                }
+                else{
+                    M[posY][posX+1] = '-';
+                }
             }
-        }
 
+        }
     }
     else if (random == 3){ // ke bawah
         int posX = engimon.getX();
@@ -157,14 +168,20 @@ void Map::engimonMove(Engimon engimon){
             engimonMove(engimon);
         }
         else{
-            engimon.setY(posY);
-            M[posY][engimon.getX()] = getSymbolEngimon(engimon);
-            if (posX > 6 && posY-1< 7){
-                M[posY-1][posX] = '~';
+            if(isGroundXBorder(posX, posY-1)){
+                engimonMove(engimon);
             }
             else{
-                M[posY-1][posX] = '-';
+                engimon.setY(posY);
+                M[posY][posX] = getSymbolEngimon(engimon);
+                if (posX > 6 && posY-1< 7){
+                    M[posY-1][posX] = '~';
+                }
+                else{
+                    M[posY-1][posX] = '-';
+                }
             }
+
         }
 
     }
@@ -175,19 +192,24 @@ void Map::engimonMove(Engimon engimon){
             engimonMove(engimon);
         }
         else{
-            engimon.setY(posY);
-            M[posY][posX] = getSymbolEngimon(engimon);
-            if (posX > 6 && posY+1< 7){
-                M[posY+1][posX] = '~';
+            if (isGroundXBorder(posX, posY)){
+                engimonMove(engimon);
             }
             else{
-                M[posY+1][posX] = '-';
+                engimon.setY(posY);
+                M[posY][posX] = getSymbolEngimon(engimon);
+                if (posX > 6 && posY+1< 7){
+                    M[posY+1][posX] = '~';
+                }
+                else{
+                    M[posY+1][posX] = '-';
+                }
             }
+
         }
 
     }
 }
-
 void Map::engimonUp(Engimon engimon){
     int posX = engimon.getX();
     int posY = engimon.getY()-1;
@@ -200,7 +222,7 @@ void Map::engimonUp(Engimon engimon){
     }
     else{
 
-        M[engimon.getY()][engimon.getX()] = getSymbolEngimon(engimon);
+        M[posY][posX] = getSymbolEngimon(engimon);
         cout << engimon.getX()<< engimon.getY()<< endl;
         if (engimon.getX() > 6 && engimon.getY()+1< 7){
             M[engimon.getY()+1][engimon.getX()] = '~';
@@ -273,8 +295,23 @@ bool Map::isBorder(){
 bool Map::isBorderEngimon(int posX, int posY){
     return (posX == 0 || posX == Width-1 || posY == 0 || posY == Height-1);
 }
+bool Map::isGroundYBorder(int posX, int posY){
+    return (posX == 7 && posY <= 6);
+}
+bool Map::isGroundXBorder(int posX, int posY){
+    return (posX >= 7 && posY == 6);
+}
+bool Map::isNearEngimon(){
+    for (int i=this->ordinat-1; i<this->ordinat+1; i++){
+        for (int j=this->absis-1; j<this->absis+1; j++){
+            if (M[i][j] != '-' || M[i][j] != '~'){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 void Map::Up(){
-
     this->ordinat = this->ordinat - 1;
     if (isBorder()){
         printf("Kamu menabrak tembok\n");
