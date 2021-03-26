@@ -6,6 +6,7 @@
 #include <string>
 #include "../Engimon/Engimon.hpp"
 #include "../Map/Map.hpp"
+#include "../Inventory/Inventory.hpp"
 #include<array> // for array, at()
 #include<tuple> // for get()
 using namespace std;
@@ -43,7 +44,7 @@ class Player {
 
   private:
     string nama;
-    array<Engimon,100> engimonKepemilikan;
+     engimonKepemilikan;
     array<Skillitem,100> Skillitem;
     int jumlahEngimonKepemilikan;
     Engimon activeEngimon;

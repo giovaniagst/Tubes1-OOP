@@ -5,7 +5,7 @@
 #include "../Skill/SkillItem.hpp"
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 #include <iterator>
 using namespace std;
 
@@ -13,20 +13,44 @@ template<class T>
 class Inventory
 {
 private:
-    list<T> items;
+    vector<T> items;
     int neff;
+    const int MAX =100;
 public:
-    //getter
+
+    inline static int used = 0;
     int getNeff(){
         return this->neff;
     }
-    T getItem(int){
-        return this->items.   
+    T getItem(int x){
+        return this->items.at(x);   
     }
-    T first() const;
-    void push(T const&);
-    void pop(T);
-    void erase(int);
+    T first() const{
+        return this->items.at(this->items.begin());
+    }
+
+    void push(T const& t){
+        if (used < MAX) {
+            this->items.push_back(t);
+            neff+=1;
+            used+=1;
+        }
+    }
+    T pop(T){
+        if (used > 0 && neff > 0){
+            
+            neff-=1;
+            used-=1;
+            return this->items.pop_back();
+        }
+    }
+    void erase(int x) {
+        try{
+            this->items.erase(x);
+        }catch (...){
+            cout << "object not found" << endl;
+        }
+    }
 
 };
 
