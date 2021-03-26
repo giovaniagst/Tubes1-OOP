@@ -140,7 +140,7 @@ void Engimon::setSkill(Skill skill, int idx) {
 }
 string* Engimon::getElements() {
     string* hasil = new string[2];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 2; i++) {
         hasil[i] = elements[i];
     }
     return hasil;
@@ -178,9 +178,11 @@ int Engimon::getX() {
 int Engimon::getY() {
     return y;
 }
-void Engimon::setCoordinate(int x, int y) {
-    this->x = x;
-    this->y = y;
+void Engimon::setX(int X){
+    x = X;
+}
+void Engimon::setY(int Y){
+    y = Y;
 }
 bool Engimon::getActive() {
     return active;

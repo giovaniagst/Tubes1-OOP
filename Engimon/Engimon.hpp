@@ -38,7 +38,8 @@ class Engimon {
     int getX();
     int getY();
     int getMaxNumOfSkill();
-    void setCoordinate(int x, int y);
+    void setX(int X);
+    void setY(int Y);
     bool getActive();
     void setActive(bool active);
     string getSpecies();
