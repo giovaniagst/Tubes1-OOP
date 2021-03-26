@@ -7,6 +7,7 @@
 #include "../Engimon/Engimon.hpp"
 #include <iostream>
 #include <cstdio>
+#include <fstream>
 
 #define Height 12
 #define Width 14
@@ -23,7 +24,6 @@ class Map{
     public:
         Map();
         ~Map();
-        void ReadMatriks(FILE * file, char*c);
         void TulisMatriks();
         void InitMap();
         void initEngimon(Engimon engimon);

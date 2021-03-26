@@ -12,30 +12,21 @@ Map::Map(){
     for (int i=0; i<Height; i++){
         M[i] = new char[Width];
         for (int j=0; j<Width; j++){
-            M[i][j] = 'X';
+            M[i][j] = '\0';
         }
     }
     //M[Width][Height] = 'X';
 }
 Map::~Map(){}
-void Map::ReadMatriks(FILE * file, char *c){
-//ifstream file;
-//file.open("Map.txt", "r");
-//
-//for (int i = 0; i < Height; i++) {
-//    for (int j = 0; j < Width; j++) {
-//        file >> M[i][j];
-//    }
-//}
-//file.close();
-    for (int i=0; i<Height; i++){
-        for (int j=0; j<Width; j++){
-            *c = (char)fgetc(file);
-            M[i][j] = *c;
-            *c = (char)fgetc(file); //blank
+void Map::InitMap(){
+    ifstream file;
+    file.open("./Map/Map.txt");
+
+    for (int i = 0; i < Height; i++) {
+        for (int j = 0; j < Width; j++) {
+            file >> M[i][j];
         }
     }
-    *c = (char)fgetc(file); //blank
 }
 void Map::TulisMatriks(){
     for (int i=0; i<Height; i++){
@@ -49,12 +40,6 @@ void Map::TulisMatriks(){
         }
         cout << endl;
     }
-}
-void Map::InitMap(){
-    FILE * file = fopen("./Map/Map.txt", "r");
-    char c;
-    ReadMatriks(file, &c);
-    fclose(file);
 }
 void Map::initEngimon(Engimon engimon){
     int posX = engimon.getX();
@@ -124,101 +109,104 @@ int Map::random2ndMove(){
     return rand()%(4-1)+1;
 }
 void Map::engimonMove(Engimon *engimon){
-    int random = randomMove();
-    if (random == 1){ //ke kanan
-        int posX = engimon->getX()+1;
-        int posY = engimon->getY();
-        if (isBorderEngimon(posX, posY)){
-            engimonMove(engimon);
-        }
-        else{
-            if(isGroundYBorder(posX, posY)){
+    if (!engimon->getActive()){
+         int random = randomMove();
+        if (random == 1){ //ke kanan
+            int posX = engimon->getX()+1;
+            int posY = engimon->getY();
+            if (isBorderEngimon(posX, posY)){
                 engimonMove(engimon);
             }
             else{
-                engimon->setX(posX);
-                M[posY][posX] = getSymbolEngimon(*engimon);
-                if (posX-1 > 6 && posY< 7){
-                    M[posY][posX-1] = '~';
+                if(isGroundYBorder(posX, posY)){
+                    engimonMove(engimon);
                 }
                 else{
-                    M[posY][posX-1] = '-';
+                    engimon->setX(posX);
+                    M[posY][posX] = getSymbolEngimon(*engimon);
+                    if (posX-1 > 6 && posY< 7){
+                        M[posY][posX-1] = '~';
+                    }
+                    else{
+                        M[posY][posX-1] = '-';
+                    }
                 }
+
+            }
+        }
+        else if (random == 2){ // ke kiri
+            int posX = engimon->getX()-1;
+            int posY = engimon->getY();
+            if (isBorderEngimon(posX, posY)){
+                engimonMove(engimon);
+            }
+            else{
+                if (isGroundYBorder(posX+1, posY)){
+                    engimonMove(engimon);
+                }
+                else{
+                    engimon->setX(posX);
+                    M[posY][posX] = getSymbolEngimon(*engimon);
+                    if (posX+1 > 6 && posY< 7){
+                        M[posY][posX+1] = '~';
+                    }
+                    else{
+                        M[posY][posX+1] = '-';
+                    }
+                }
+
+            }
+        }
+        else if (random == 3){ // ke bawah
+            int posX = engimon->getX();
+            int posY = engimon->getY()+1;
+            if (isBorderEngimon(posX, posY)){
+                engimonMove(engimon);
+            }
+            else{
+                if(isGroundXBorder(posX, posY-1)){
+                    engimonMove(engimon);
+                }
+                else{
+                    engimon->setY(posY);
+                    M[posY][posX] = getSymbolEngimon(*engimon);
+                    if (posX > 6 && posY-1< 7){
+                        M[posY-1][posX] = '~';
+                    }
+                    else{
+                        M[posY-1][posX] = '-';
+                    }
+                }
+
+            }
+
+        }
+        else if (random == 4){ // ke atas
+            int posX = engimon->getX();
+            int posY = engimon->getY()- 1;
+            if (isBorderEngimon(posX, posY)){
+                engimonMove(engimon);
+            }
+            else{
+                if (isGroundXBorder(posX, posY)){
+                    engimonMove(engimon);
+                }
+                else{
+                    engimon->setY(posY);
+                    M[posY][posX] = getSymbolEngimon(*engimon);
+                    if (posX > 6 && posY+1< 7){
+                        M[posY+1][posX] = '~';
+                    }
+                    else{
+                        M[posY+1][posX] = '-';
+                    }
+                }
+
             }
 
         }
     }
-    else if (random == 2){ // ke kiri
-        int posX = engimon->getX()-1;
-        int posY = engimon->getY();
-        if (isBorderEngimon(posX, posY)){
-            engimonMove(engimon);
-        }
-        else{
-            if (isGroundYBorder(posX+1, posY)){
-                engimonMove(engimon);
-            }
-            else{
-                engimon->setX(posX);
-                M[posY][posX] = getSymbolEngimon(*engimon);
-                if (posX+1 > 6 && posY< 7){
-                    M[posY][posX+1] = '~';
-                }
-                else{
-                    M[posY][posX+1] = '-';
-                }
-            }
-
-        }
-    }
-    else if (random == 3){ // ke bawah
-        int posX = engimon->getX();
-        int posY = engimon->getY()+1;
-        if (isBorderEngimon(posX, posY)){
-            engimonMove(engimon);
-        }
-        else{
-            if(isGroundXBorder(posX, posY-1)){
-                engimonMove(engimon);
-            }
-            else{
-                engimon->setY(posY);
-                M[posY][posX] = getSymbolEngimon(*engimon);
-                if (posX > 6 && posY-1< 7){
-                    M[posY-1][posX] = '~';
-                }
-                else{
-                    M[posY-1][posX] = '-';
-                }
-            }
-
-        }
-
-    }
-    else if (random == 4){ // ke atas
-        int posX = engimon->getX();
-        int posY = engimon->getY()- 1;
-        if (isBorderEngimon(posX, posY)){
-            engimonMove(engimon);
-        }
-        else{
-            if (isGroundXBorder(posX, posY)){
-                engimonMove(engimon);
-            }
-            else{
-                engimon->setY(posY);
-                M[posY][posX] = getSymbolEngimon(*engimon);
-                if (posX > 6 && posY+1< 7){
-                    M[posY+1][posX] = '~';
-                }
-                else{
-                    M[posY+1][posX] = '-';
-                }
-            }
-
-        }
-
-    }
+   return;
 }
 void Map::engimonUp(Engimon *engimon){
     int posX = engimon->getX();
