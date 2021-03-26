@@ -38,6 +38,12 @@ class Player {
     void printActiveEngimon();
     void changeActiveEngimon(int pos);
     void doBreeding(string Engimon1, string Engimon2);
+    int sumSkill(Engimon me);
+    float compareElementAd(string* myEl,string* enemyEl);
+    float imax(int x, int y);
+    int intmax(int x, int y);
+    string smax(string x, string y);
+    float compareElement(string x, string y);
     // void skill();
    
     // void battle();

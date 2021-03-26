@@ -110,7 +110,7 @@ void Player::battle(Engimon lawan){
     }
 }
 
-int sumSkill(Engimon me){
+int Player::sumSkill(Engimon me){
     int mysum = 0;
     for (int i =0; i<me.getNumSkill();i++){
         Skill mySkill = me.getSkill(i);
@@ -120,7 +120,7 @@ int sumSkill(Engimon me){
 }
 
 
-float compareElementAd(string* myEl,string* enemyEl){
+float Player::compareElementAd(string* myEl,string* enemyEl){
     float elementAdvantage;
     if (myEl[1] != ""){
         if (enemyEl[1] != ""){
@@ -139,15 +139,15 @@ float compareElementAd(string* myEl,string* enemyEl){
     return elementAdvantage;
 };
 
-float imax(int x, int y){ // dipakai di battle dan breeding
+float Player::imax(int x, int y){ // dipakai di battle dan breeding
     return x > y ? x : y;
 }
 
-int intmax(int x, int y){ // dipakai di breeding
+int Player::intmax(int x, int y){ // dipakai di breeding
     return x > y ? x : y;
 }
 
-string smax(string x, string y){ // dipakai di breeding
+string Player::smax(string x, string y){ // dipakai di breeding
     if (compareElement(x,y) > compareElement(y,x)) {
         return x;
     } else if (compareElement(x,y) < compareElement(y,x)) {
@@ -156,7 +156,7 @@ string smax(string x, string y){ // dipakai di breeding
         return "0";
     }
 }
-float compareElement(string x, string y){
+float Player::compareElement(string x, string y){
     if (x == "Fire"){
         if (y == "Fire"){
             return 1.0;
